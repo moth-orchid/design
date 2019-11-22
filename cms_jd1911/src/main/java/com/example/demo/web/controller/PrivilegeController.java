@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.Privilege;
 import com.example.demo.bean.Role;
+import com.example.demo.bean.extend.PrivilegeTree;
 import com.example.demo.service.PrivilegeSevice;
 import com.example.demo.service.RoleService;
 import com.example.demo.utils.Message;
@@ -63,7 +64,7 @@ public class PrivilegeController {
 	@PostMapping("/findPrivilegeTree")
 	@ApiOperation("查找权限树")
 	public Message findPrivilegeTree() {
-		Map<Privilege,List<Privilege>> map=privilegeService.findPrivilegeTree();
-		return MessageUtil.success(map);
+		List<PrivilegeTree> privilegeTree = privilegeService.findPrivilegeTree();
+		return MessageUtil.success(privilegeTree);
 	}
 }

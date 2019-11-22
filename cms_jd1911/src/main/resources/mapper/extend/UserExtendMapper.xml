@@ -12,4 +12,9 @@
   	from cms_user
   	where id=#{id}
   </select>
+  
+  <select id="cascadeRoleFindAll"  resultMap="UserExtendMapper">
+  	select * 
+  	from cms_user
+  </select>
 </mapper>

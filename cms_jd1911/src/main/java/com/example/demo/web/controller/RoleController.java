@@ -41,14 +41,21 @@ public class RoleController {
 			@ApiImplicitParam(name = "id",value = "角色",paramType = "query",required = true)
 			)
 	public Message deleteById(Long id) {
-		roleservice.deleteRoleById(id);;
+		roleservice.deleteRoleById(id);
 		return MessageUtil.success("删除成功");
 	}
 	
 	@PostMapping("/saveOrUpdate")
 	@ApiOperation("保存或者更新用户角色")
 	public Message saveOrUpdate(Role role) {
-		roleservice.saveOrUpdateRole(role);;
+		roleservice.saveOrUpdateRole(role);
+		return MessageUtil.success("执行成功");
+	}
+	
+	@PostMapping("/setPrivilege")
+	@ApiOperation("为角色设置权限")
+	public Message setPrivilege(Long id,Long[] ids) {
+		roleservice.setPrivilege(id,ids);
 		return MessageUtil.success("执行成功");
 	}
 }

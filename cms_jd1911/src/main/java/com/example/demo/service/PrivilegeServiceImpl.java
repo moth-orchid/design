@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.Privilege;
 import com.example.demo.bean.PrivilegeExample;
+import com.example.demo.bean.extend.PrivilegeTree;
 import com.example.demo.dao.PrivilegeMapper;
 import com.example.demo.dao.extend.PrivilegeExtendMapper;
 
@@ -52,16 +54,15 @@ public class PrivilegeServiceImpl implements PrivilegeSevice{
 	}
 
 	@Override
-	public Map<Privilege, List<Privilege>> findPrivilegeTree() {
-		Map<Privilege, List<Privilege>> map=new HashMap<>();
-		//先查找所有父id为空的值作为map的键
-		List<Privilege> findNull = privilegeExtendMapper.findNull();
-		//遍历list集合，每一个值都作为健值
-		for(Privilege p:findNull) {
-			List<Privilege> findByParentId = privilegeExtendMapper.findByParentId(p.getId().longValue());
-			map.put(p,findByParentId);
-		}
-		return map;
+	public List<PrivilegeTree> findPrivilegeTree() {
+		List<PrivilegeTree> findNull = privilegeExtendMapper.findNull();
+		return findNull;
+	}
+
+	@Override
+	public List<Privilege> findUserId(Long userId) {
+		List<Privilege> findUserId = privilegeExtendMapper.findUserId(userId);
+		return findUserId;
 	}
 	
 }

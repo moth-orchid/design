@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.User;
+import com.example.demo.bean.extend.UserRole;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.Message;
 import com.example.demo.utils.MessageUtil;
@@ -32,6 +33,13 @@ public class UserController {
 	@ApiOperation("查询所有用户")
 	public Message finaAllUser() {
 		List<User> list = userService.findAllUser();
+		return MessageUtil.success(list);
+	}
+	
+	@PostMapping("/cascadeRoleFindAll")
+	@ApiOperation("查询所有用户")
+	public Message cascadeRoleFindAll() {
+		List<UserRole> list = userService.cascadeRoleFindAll();
 		return MessageUtil.success(list);
 	}
 	

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.logging.log4j.util.Base64Util;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.Role;
@@ -39,6 +40,14 @@ public class UserServiceImpl implements UserService{
 		List<User> list = userMapper.selectByExample(example);
 		return list;
 	}
+	
+	//级联查询所有用户
+		@Override
+		public List<com.example.demo.bean.extend.UserRole> cascadeRoleFindAll() {
+			List<com.example.demo.bean.extend.UserRole> userRoles = userExtendMapper.cascadeRoleFindAll();
+			return userRoles;
+		}
+	
 	//根据用户的id删除用户
 	@Override
 	public void deleteUserById(Long id) {
@@ -62,12 +71,11 @@ public class UserServiceImpl implements UserService{
 			Criteria createCriteria = example.createCriteria();
 			createCriteria.andUsernameEqualTo(user.getUsername());
 			List<User> selectByExample = userMapper.selectByExample(example);
-			String md5 = MD5Utils.md5(user.getPassword());
-			user.setPassword(md5);
+			String encode = Base64Util.encode(user.getPassword());
+			user.setPassword(encode);
 			if(selectByExample.size()>0) {
 				throw new CustomerException("用户名已经存在");
 			}else {
-				user.setRegisterTime(new Date());
 				user.setStatus(1);
 				userMapper.insert(user);
 			}

@@ -6,7 +6,7 @@ import com.example.demo.bean.extend.UserVM;
 
 public interface UserLoginService {
 
-	Long login(UserVM user);
+	User login(UserVM user);
 	
 	UserRole findUser(Long user);
 }

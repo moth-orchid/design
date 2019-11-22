@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.demo.bean.Privilege;
+import com.example.demo.bean.extend.PrivilegeTree;
 
 public interface PrivilegeSevice {
 	//根据id删除权限
@@ -17,5 +18,7 @@ public interface PrivilegeSevice {
 
 	List<Privilege> findByParentId(Long id);
 
-	Map<Privilege, List<Privilege>> findPrivilegeTree();
+	List<PrivilegeTree> findPrivilegeTree();
+
+	List<Privilege> findUserId(Long userId);
 }

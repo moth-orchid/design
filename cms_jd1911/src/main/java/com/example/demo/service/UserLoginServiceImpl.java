@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.logging.log4j.util.Base64Util;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.User;
@@ -25,14 +26,14 @@ public class UserLoginServiceImpl implements UserLoginService{
 	private UserExtendMapper userExtendMapper;
 	
 	@Override
-	public Long login(UserVM user) {
-		user.setPassword(MD5Utils.md5(user.getPassword()));
+	public User login(UserVM user) {
+		user.setPassword(Base64Util.encode(user.getPassword()));
 		UserExample example=new UserExample();
 		Criteria createCriteria = example.createCriteria();
 		createCriteria.andUsernameEqualTo(user.getUsername()).andPasswordEqualTo(user.getPassword());
 		List<User> list = userMapper.selectByExample(example);
 		if(list.size()>0) {
-			return list.get(0).getId().longValue();
+			return list.get(0);
 		}else {
 			throw new CustomerException("用户名或者密码有误");
 		}

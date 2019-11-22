@@ -7,15 +7,39 @@
   extends="com.example.demo.dao.PrivilegeMapper.BaseResultMap">
   </resultMap>
   
+  <select id="findUserId" resultMap="privilegeResultMap">
+ 	select p.* 
+	from cms_user u,cms_user_role ur,cms_role r,cms_privilege p,cms_role_privilege rp
+	where u.id=ur.user_id 
+	and ur.role_id=r.id
+	and r.id=rp.role_id
+	and p.id=rp.privilege_id
+	and u.id=#{id}
+  </select>
+  
+  
   <select id="findByParentId"  resultMap="privilegeResultMap">
   	select *
  	from cms_privilege
  	where parent_id=#{id}
   </select>
   
-   <select id="findNull"  resultMap="privilegeResultMap">
+   <select id="findNull"  resultMap="PrivilegeTree">
   	select *
  	from cms_privilege
  	where parent_id is null
   </select>
+  
+  <select id="findByRoleId" resultMap="privilegeResultMap">
+  	select p.* 
+  	from cms_role_privilege rp,cms_privilege p
+  	where rp.privilege_id=p.id and rp.role_id=#{id}
+  </select>
+  
+  <resultMap id="PrivilegeTree" type="com.example.demo.bean.extend.PrivilegeTree"
+  extends="com.example.demo.dao.PrivilegeMapper.BaseResultMap">
+  <collection property="children" column="id" select="com.example.demo.dao.extend.PrivilegeExtendMapper.findByParentId"/>
+  </resultMap>
+  
+  
 </mapper>

@@ -231,4 +231,12 @@ public class Privilege {
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
+
+	@Override
+	public String toString() {
+		return "Privilege [id=" + id + ", name=" + name + ", description=" + description + ", route=" + route
+				+ ", type=" + type + ", icon=" + icon + ", parentId=" + parentId + "]";
+	}
+    
+    
 }

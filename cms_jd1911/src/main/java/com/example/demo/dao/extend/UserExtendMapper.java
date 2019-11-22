@@ -7,4 +7,6 @@ import com.example.demo.bean.extend.UserRole;
 
 public interface UserExtendMapper {
 	UserRole selectAll(Long id);
+	
+	public List<UserRole> cascadeRoleFindAll();
 }

@@ -13,4 +13,6 @@ public interface RoleService {
 	
 	//查看所有角色
 	List<Role> findAll();
+
+	void setPrivilege(Long id, Long[] ids);
 }
