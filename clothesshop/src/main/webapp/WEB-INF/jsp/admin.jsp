@@ -9,7 +9,9 @@
 <title>查询用户</title>
 </head>
 <body> 
-<h1>这是管理员页面：</h1>
+<h2>这是管理员页面：</h2>
+<a href="${pageContext.request.contextPath }/consumerManager">消费者管理</a>
+<a href="${pageContext.request.contextPath }/sellerManager">商家管理</a>
+<a href="${pageContext.request.contextPath }/">商品管理</a>
 </body>
-
 </html>

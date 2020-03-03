@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import com.yhl.entity.Admin;
 import com.yhl.entity.Consumer;
+import com.yhl.entity.Seller;
 import com.yhl.entity.User;
 @Service
 public interface UserSelect {
@@ -22,4 +24,14 @@ public interface UserSelect {
 	public void deleteUser(User user1);
 
 	public Boolean queryByNameAndPassword(Consumer consumer);
+
+	public void insertCustomer(Consumer consumer);
+
+	public Boolean queryByNameAndPassword1(Seller seller);
+
+	public void insertSeller(Seller seller);
+
+	public Boolean queryByNameAndPassword2(Admin admin);
+
+	public List<Consumer> findAllConsumer();
 }

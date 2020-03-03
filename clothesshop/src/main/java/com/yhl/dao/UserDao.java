@@ -3,7 +3,9 @@ package com.yhl.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+import com.yhl.entity.Admin;
 import com.yhl.entity.Consumer;
+import com.yhl.entity.Seller;
 import com.yhl.entity.User;
 
 public interface UserDao {
@@ -28,6 +30,16 @@ public interface UserDao {
 	public void deleteUser(User user1);
 
 	public Consumer queryByNameAndPassword(Consumer consumer);
+
+	public void insertConsumer(Consumer consumer);
+
+	public Seller queryByNameAndPassword1(Seller seller);
+
+	public void insertSeller(Seller seller);
+
+	public Admin queryByNameAndPassword2(Admin admin);
+
+	public List<Consumer> findAllConsumer();
 
     
 

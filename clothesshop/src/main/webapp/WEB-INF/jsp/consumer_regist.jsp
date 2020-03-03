@@ -9,19 +9,27 @@
 <title>用户注册</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/insertConsumer" method="get">
-<table width="100%" border=1  align="center" height="300px" title="服装销售系统">
+<form action="${pageContext.request.contextPath }/consumerRegist" method="get">
+<table width="100%" border=1  align="center" height="300px">
 <tr>
-<td >用户名:<input type="text" name="name"></td>
+<td >用户名：<input type="text" name="consumerName"></td>
 </tr>
 <tr>
-<td >密码:   <input type="text" name="password"></td>
+<td >密码：<input type="text" name="consumerPassword"></td>
 </tr>
 <tr>
-<td >身份:   <input type="text" name="status"></td>
+<td >邮箱：<input type="text" name="consumerEmail"></td>
 </tr>
 <tr>
-<td><input type="submit" value="登录"/></td>
+<td >地址：<input type="text" name="consumerAddress"></td>
+</tr>
+<tr>
+<td >电话：<input type="text" name="consumerPhone"></td>
+</tr>
+<tr>
+<td >邮编：<input type="text" name="consumerZip"></td>
+</tr>
+<tr>
 <td><input type="submit" value="注册"/></td>
 </tr>
 </table> 

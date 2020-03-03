@@ -5,7 +5,7 @@
 
 <mapper namespace="com.yhl.dao.UserDao">
 
-    <select id="queryById" resultType="User" parameterType="String">
+<!--     <select id="queryById" resultType="User" parameterType="String">
         select 
         u.user_id "userId", 
         u.user_name "userName",
@@ -16,8 +16,8 @@
        
         from user_table u , dog_table d 
         where u.dog_id=d.dog_id and u.user_id=#{userId}
-    </select>
-	
+    </select> -->
+<!-- 	
 	<select id="queryByAgeAndName" resultType="User" >
 		select 
 		u.user_id "userId",
@@ -29,7 +29,9 @@
 		
 		from user_table u,dog_table d
 		where u.dog_id=d.dog_id and u.user_name=#{userName} and u.user_age=#{userAge}
-	</select>
+	</select> -->
+	
+	
 	<select id="queryByNameAndPassword" resultType="Consumer" parameterType="Consumer">
 		select 
 		consumer_id "consumerId",
@@ -39,8 +41,44 @@
 		where consumer_name=#{consumerName} and consumer_password=#{consumerPassword}
 	</select>
 	
+	<select id="queryByNameAndPassword1" resultType="Seller" parameterType="Seller">
+		select 
+		seller_id "sellerId",
+		seller_name "sellerName",
+		seller_password "sellerPassword"
+		from seller_table
+		where seller_name=#{sellerName} and seller_password=#{sellerPassword}
+	</select>
 	
-	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
+	
+	<select id="queryByNameAndPassword2" resultType="Admin" parameterType="Admin">
+		select 
+		admin_id "adminId",
+		admin_name "adminName",
+		admin_password "adminPassword"
+		from admin_table
+		where admin_name=#{adminName} and admin_password=#{adminPassword}
+	</select>
+	<insert id="insertConsumer" parameterType="Consumer" useGeneratedKeys="true" keyProperty="consumerId"> 
+		insert into
+		consumer_table
+		(consumer_name,consumer_password,consumer_email,consumer_address,consumer_phone,consumer_zip)
+		values(#{consumerName},#{consumerPassword},#{consumerEmail},#{consumerAddress},#{consumerPhone},#{consumerZip})
+	</insert>
+	
+	<insert id="insertSeller" parameterType="Seller" useGeneratedKeys="true" keyProperty="sellerId"> 
+		insert into
+		seller_table
+		(seller_name,seller_password,seller_email,seller_address,seller_phone,seller_zip)
+		values(#{sellerName},#{sellerPassword},#{sellerEmail},#{sellerAddress},#{sellerPhone},#{sellerZip})
+	</insert>
+	
+	<select id="findAllConsumer" resultType="Consumer" >
+		select *
+		from consumer_table
+	</select>
+	
+<!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 
 		values(#{userId},#{userName},#{userAge})
@@ -51,6 +89,6 @@
 		user_table
 		where user_id=#{userId}
 	
-	</delete>
+	</delete> -->
 	
 </mapper>
