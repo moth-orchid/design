@@ -30,6 +30,15 @@
 		from user_table u,dog_table d
 		where u.dog_id=d.dog_id and u.user_name=#{userName} and u.user_age=#{userAge}
 	</select>
+	<select id="queryByNameAndPassword" resultType="Consumer" parameterType="Consumer">
+		select 
+		consumer_id "consumerId",
+		consumer_name "consumerName",
+		consumer_password "consumerPassword"
+		from consumer_table
+		where consumer_name=#{consumerName} and consumer_password=#{consumerPassword}
+	</select>
+	
 	
 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into

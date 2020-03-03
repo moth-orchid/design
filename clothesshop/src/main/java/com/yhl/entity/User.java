@@ -12,6 +12,7 @@ public class User {
     private Integer userAge;
 
     private Dog dog;
+    
     public User() {
 		// TODO Auto-generated constructor stub
 	}

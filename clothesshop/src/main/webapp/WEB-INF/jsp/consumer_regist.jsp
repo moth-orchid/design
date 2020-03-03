@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户登录</title>
+<title>用户注册</title>
 </head>
 <body>
-<h1>服装销售系统</h1>
-<form action="${pageContext.request.contextPath }/consumer" method="get">
+<form action="${pageContext.request.contextPath }/insertConsumer" method="get">
 <table width="100%" border=1  align="center" height="300px" title="服装销售系统">
 <tr>
 <td >用户名:<input type="text" name="name"></td>

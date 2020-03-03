@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yhl.dao.UserDao;
+import com.yhl.entity.Consumer;
 import com.yhl.entity.User;
 @Service
 public class UserSelectByNameAndAge implements UserSelect{
@@ -30,6 +31,19 @@ public class UserSelectByNameAndAge implements UserSelect{
 	public void deleteUser(User user1) {
 		userDao.deleteUser(user1);
 		
+	}
+
+	@Override
+	public Boolean queryByNameAndPassword(Consumer consumer) {
+		System.out.println("进入服务层");
+		Consumer consumer1=userDao.queryByNameAndPassword(consumer);
+		System.out.println("////");
+		System.out.println(consumer1);
+		if(consumer1==null) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yhl.entity.Consumer;
 import com.yhl.entity.User;
 import com.yhl.service.UserSelect;
 
@@ -73,9 +74,31 @@ public class UserController {
 	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
 	public String userLogin() {
-		return "login";
+		return "userLogin";
 	}
 	
+	@RequestMapping(value = "/consumer", method = RequestMethod.GET)
+	public String enterConsumer(String name,String password,String status) {
+		System.out.println(name+password+status);
+		//判断用户身份
+		if(status.equals("商家")&&status!=null) {
+			return "seller";
+		}
+		else if (status.equals("消费者")&&status!=null) {
+			//判断该消费者是否存在
+			Consumer consumer=new Consumer();
+			consumer.setConsumerName(name);
+			consumer.setConsumerPassword(password);
+			Boolean flag=userSelect.queryByNameAndPassword(consumer);
+			if(flag==true) {
+				return "regist";
+			}else {
+				return "consumer";
+			}
+		}else {
+			return "admin";
+		}
+	}
 	
 	
 	

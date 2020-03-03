@@ -2,6 +2,8 @@ package com.yhl.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.yhl.entity.Consumer;
 import com.yhl.entity.User;
 
 public interface UserDao {
@@ -24,6 +26,8 @@ public interface UserDao {
 	public void insertUser(User user1);
 
 	public void deleteUser(User user1);
+
+	public Consumer queryByNameAndPassword(Consumer consumer);
 
     
 

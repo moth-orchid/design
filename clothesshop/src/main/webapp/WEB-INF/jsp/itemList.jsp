@@ -11,7 +11,7 @@
 <body> 
  <form action="${pageContext.request.contextPath }/userList" method="get">
  查询条件：
-<table width="100%" border=1>
+<table width="100%" border=1 >
 <tr>
 <td>用户名称:<input type="text" name="userName"></td>
 <td>用户年龄:<input type="text" name="userAge"></td>
