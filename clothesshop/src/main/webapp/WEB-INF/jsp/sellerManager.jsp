@@ -9,8 +9,8 @@
 <title>查询用户</title>
 </head>
 <body> 
-消费者列表：
-<a href="${pageContext.request.contextPath }/addConsumer">添加消费者</a>
+商家列表：
+<a href="${pageContext.request.contextPath }/addSeller">添加商家</a>
 <table width="100%" border=1>
 	<tr>
 		<td>用户id</td>
@@ -18,12 +18,12 @@
 		<td>用户地址</td>
 		<td>操作</td>
 	</tr>
-<c:forEach items="${consumerList}" var="consumer">
+<c:forEach items="${sellerList}" var="seller">
 	<tr>
-		<td>${consumer.consumerId}</td>
-		<td>${consumer.consumerName}</td>
-		<td>${consumer.consumerAddress}</td>	
-		<td><a href="${pageContext.request.contextPath }/consumerDelete?consumerId=${consumer.consumerId}">删除</a></td>
+		<td>${seller.sellerId}</td>
+		<td>${seller.sellerName}</td>
+		<td>${seller.sellerAddress}</td>	
+		<td><a href="${pageContext.request.contextPath }/sellerDelete?sellerId=${seller.sellerId}">删除</a></td>
 	</tr>
 </c:forEach>
 

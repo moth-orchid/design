@@ -34,4 +34,14 @@ public interface UserSelect {
 	public Boolean queryByNameAndPassword2(Admin admin);
 
 	public List<Consumer> findAllConsumer();
+
+	public List<Seller> findAllSeller();
+
+	public void deleteConsumer(Consumer consumer);
+
+	public void addConsumer(Consumer consumer);
+
+	public void deleteSeller(Seller seller);
+
+	public void addSeller(Seller seller);
 }

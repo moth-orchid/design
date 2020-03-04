@@ -78,6 +78,37 @@
 		from consumer_table
 	</select>
 	
+	<select id="findAllSeller" resultType="Seller" >
+		select *
+		from seller_table
+	</select>
+	
+	<delete id="deleteConsumer" parameterType="Consumer">
+		delete 
+		from consumer_table
+		where consumer_id=#{consumerId}
+	</delete>
+	
+	<insert id="addConsumer" parameterType="Consumer" useGeneratedKeys="true" keyProperty="consumerId"> 
+		insert into
+		consumer_table
+		(consumer_name,consumer_password,consumer_email,consumer_address,consumer_phone,consumer_zip)
+		values(#{consumerName},#{consumerPassword},#{consumerEmail},#{consumerAddress},#{consumerPhone},#{consumerZip})
+	</insert>
+	
+	<delete id="deleteSeller" parameterType="Seller">
+		delete 
+		from seller_table
+		where seller_id=#{sellerId}
+	</delete>
+	
+	<insert id="addSeller" parameterType="Seller" useGeneratedKeys="true" keyProperty="sellerId"> 
+		insert into
+		seller_table
+		(seller_name,seller_password,seller_email,seller_address,seller_phone,seller_zip)
+		values(#{sellerName},#{sellerPassword},#{sellerEmail},#{sellerAddress},#{sellerPhone},#{sellerZip})
+	</insert>
+	
 <!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 

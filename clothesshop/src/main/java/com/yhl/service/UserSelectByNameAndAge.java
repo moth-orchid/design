@@ -104,5 +104,37 @@ public class UserSelectByNameAndAge implements UserSelect{
 		List<Consumer> list=userDao.findAllConsumer();
 		return list;
 	}
+
+	@Override
+	public List<Seller> findAllSeller() {
+		List<Seller> list=userDao.findAllSeller();
+		return list;
+	}
+
+	@Override
+	public void deleteConsumer(Consumer consumer) {
+		userDao.deleteConsumer(consumer);
+		
+	}
+
+	@Override
+	public void addConsumer(Consumer consumer) {
+		System.out.println("服务层添加消费者");
+		userDao.addConsumer(consumer);
+		
+	}
+
+	@Override
+	public void deleteSeller(Seller seller) {
+		userDao.deleteSeller(seller);
+		
+	}
+
+	@Override
+	public void addSeller(Seller seller) {
+		System.out.println("服务层添加商家");
+		userDao.addSeller(seller);
+		
+	}
 	
 }

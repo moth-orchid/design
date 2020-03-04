@@ -144,4 +144,67 @@ public class UserController {
 	    return mv; 
 	    
 	}
+	
+	@RequestMapping(value = "/sellerManager", method = RequestMethod.GET)
+	public ModelAndView sellerManager() {
+		ModelAndView mv=new ModelAndView(); 
+		
+		System.out.println("商家管理");
+				
+	    List<Seller> sellerList=userSelect.findAllSeller();
+		
+	    mv.addObject("sellerList", sellerList);
+	    mv.setViewName("sellerManager");
+	    
+	    return mv; 	    
+	}
+	
+	@RequestMapping(value = "/consumerDelete", method = RequestMethod.GET)
+	public ModelAndView consumerDelete(@ModelAttribute Consumer consumer) { 		
+		System.out.println("删除消费者");
+		
+		userSelect.deleteConsumer(consumer);
+		ModelAndView mv=consumerManager();		
+	    return mv; 	    
+	}
+	
+	@RequestMapping(value = "/addConsumer", method = RequestMethod.GET)
+	public String addConsumer() {
+		return "addConsumer";
+	}
+	
+	
+	@RequestMapping(value = "/addConsumer1", method = RequestMethod.GET)
+	public ModelAndView addConsumer1(@ModelAttribute Consumer consumer) {
+		System.out.println("添加消费者");
+		
+		userSelect.addConsumer(consumer);
+		
+		ModelAndView mv=consumerManager();		
+	    return mv; 
+	}
+	
+	@RequestMapping(value = "/sellerDelete", method = RequestMethod.GET)
+	public ModelAndView sellerDelete(@ModelAttribute Seller seller) { 		
+		System.out.println("删除商家");
+		
+		userSelect.deleteSeller(seller);
+		ModelAndView mv=sellerManager();		
+	    return mv; 	    
+	}
+	
+	@RequestMapping(value = "/addSeller", method = RequestMethod.GET)
+	public String addSeller() {
+		return "addSeller";
+	}
+	
+	@RequestMapping(value = "/addSeller1", method = RequestMethod.GET)
+	public ModelAndView addSeller1(@ModelAttribute Seller seller) {
+		System.out.println("添加商家");
+		
+		userSelect.addSeller(seller);
+		
+		ModelAndView mv=sellerManager();		
+	    return mv; 
+	}
 }
