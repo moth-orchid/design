@@ -10,6 +10,7 @@
 </head>
 <body> 
 <h1>这是消费者页面：</h1>
+<a href="${pageContext.request.contextPath }/personalManager?consumerId=${consumer.consumerId}">个人中心</a>
 </body>
 
 </html>

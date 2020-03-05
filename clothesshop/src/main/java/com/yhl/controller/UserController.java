@@ -68,8 +68,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/consumer", method = RequestMethod.GET)
-	public String enterConsumer(String name,String password,String status) {
+	public ModelAndView enterConsumer(String name,String password,String status) {
 		System.out.println(name+password+status);
+		ModelAndView  mv=new ModelAndView();
 		//判断用户身份
 		if(status.equals("商家")&&status!=null) {
 			//判断该商家是否存在
@@ -80,9 +81,10 @@ public class UserController {
 			Boolean flag=userSelect.queryByNameAndPassword1(seller);
 			System.out.println(flag);
 			if(flag==true) {
-				return "seller";
+				mv.setViewName("seller");
+				return mv;
 			}else {
-				return "seller_regist";
+				return mv;
 			}
 		}
 		else if (status.equals("消费者")&&status!=null) {
@@ -94,9 +96,13 @@ public class UserController {
 			Boolean flag=userSelect.queryByNameAndPassword(consumer);
 			System.out.println(flag);
 			if(flag==true) {
-				return "consumer";
+				Consumer consumer1=userSelect.query(consumer);
+				System.out.println(consumer1+"/////");
+				mv.addObject("consumer", consumer1);
+				mv.setViewName("consumer");
+				return mv;
 			}else {
-				return "consumer_regist";
+				return mv;
 			}
 		}
 		else if(status.equals("管理员")&&status!=null){
@@ -108,13 +114,14 @@ public class UserController {
 			Boolean flag=userSelect.queryByNameAndPassword2(admin);
 			System.out.println(flag);
 			if(flag==true) {
-				return "admin";
+				mv.setViewName("admin");
+				return mv;
 			}else {
-				return "404";
+				return mv;
 			}
 		}
 		else {
-			return "404";
+			return mv;
 		}
 	}
 	
@@ -206,5 +213,19 @@ public class UserController {
 		
 		ModelAndView mv=sellerManager();		
 	    return mv; 
+	}
+	
+	@RequestMapping(value = "/personalManager", method = RequestMethod.GET)
+	public ModelAndView personalManager(@ModelAttribute Consumer consumer) {
+		System.out.println("个人中心");
+		Consumer consumer1=userSelect.queryById(consumer);
+		
+		ModelAndView mv=new ModelAndView();
+		List<Consumer> list=new ArrayList<>();
+		list.add(consumer1);
+		mv.addObject("personal", list);
+		mv.setViewName("personal");
+		
+		return mv;
 	}
 }

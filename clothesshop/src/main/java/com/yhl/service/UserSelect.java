@@ -44,4 +44,8 @@ public interface UserSelect {
 	public void deleteSeller(Seller seller);
 
 	public void addSeller(Seller seller);
+
+	public Consumer query(Consumer consumer);
+
+	public Consumer queryById(Consumer consumer);
 }

@@ -136,5 +136,15 @@ public class UserSelectByNameAndAge implements UserSelect{
 		userDao.addSeller(seller);
 		
 	}
+
+	@Override
+	public Consumer query(Consumer consumer) {
+		return userDao.query(consumer);
+	}
+
+	@Override
+	public Consumer queryById(Consumer consumer) {
+		return userDao.queryById(consumer);
+	}
 	
 }

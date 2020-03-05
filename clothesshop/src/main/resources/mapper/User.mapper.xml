@@ -109,6 +109,32 @@
 		values(#{sellerName},#{sellerPassword},#{sellerEmail},#{sellerAddress},#{sellerPhone},#{sellerZip})
 	</insert>
 	
+	<select id="query" resultType="Consumer" parameterType="Consumer">
+		select 
+		consumer_id "consumerId",
+		consumer_name "consumerName",
+		consumer_password "consumerPassword",
+		consumer_email "consumerEmail",
+		consumer_address "consumerAddress",
+		consumer_phone "consumerPhone",
+		consumer_zip "consumerZip"
+		from consumer_table
+		where consumer_name=#{consumerName} and consumer_password=#{consumerPassword}
+	</select>
+	
+ 	<select id="queryById" resultType="Consumer" parameterType="Consumer">
+       	select 
+		consumer_id "consumerId",
+		consumer_name "consumerName",
+		consumer_password "consumerPassword",
+		consumer_email "consumerEmail",
+		consumer_address "consumerAddress",
+		consumer_phone "consumerPhone",
+		consumer_zip "consumerZip"
+		from consumer_table
+		where consumer_id=#{consumerId}
+       	
+    </select> 
 <!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 

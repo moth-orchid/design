@@ -51,6 +51,10 @@ public interface UserDao {
 
 	public void addSeller(Seller seller);
 
+	public Consumer query(Consumer consumer);
+
+	public Consumer queryById(Consumer consumer);
+
     
 
 }
