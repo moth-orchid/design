@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
@@ -48,4 +49,6 @@ public interface UserSelect {
 	public Consumer query(Consumer consumer);
 
 	public Consumer queryById(Consumer consumer);
+
+	public List<Address> queryAddresseeById(Consumer consumer);
 }

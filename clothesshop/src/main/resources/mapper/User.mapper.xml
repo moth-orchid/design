@@ -135,6 +135,19 @@
 		where consumer_id=#{consumerId}
        	
     </select> 
+    
+    <select id="queryAddresseeById" parameterType="Consumer" resultType="Address">
+    	select 
+		a.id "id",
+		a.addressee "addressee",
+		a.address "address",
+		a.phone "phone",
+		c.consumer_id "consumer.consumerId"
+		
+		from address_table a,consumer_table c
+		where a.cus_id=#{consumerId} and a.cus_id=c.consumer_id
+    	
+    </select>
 <!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 

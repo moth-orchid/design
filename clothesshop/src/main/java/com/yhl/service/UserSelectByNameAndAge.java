@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yhl.dao.UserDao;
+import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
@@ -145,6 +146,12 @@ public class UserSelectByNameAndAge implements UserSelect{
 	@Override
 	public Consumer queryById(Consumer consumer) {
 		return userDao.queryById(consumer);
+	}
+
+	@Override
+	public List<Address> queryAddresseeById(Consumer consumer) {
+		List<Address> list=userDao.queryAddresseeById(consumer);
+		return list;
 	}
 	
 }

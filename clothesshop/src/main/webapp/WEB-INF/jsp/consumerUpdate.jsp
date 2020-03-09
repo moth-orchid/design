@@ -20,7 +20,7 @@
 		<td>电话</td>
 		<td>邮编</td>
 	</tr>
-<c:forEach items="${personal}" var="consumer">
+<c:forEach items="${consumer}" var="consumer">
 	<tr>
 		<td>${consumer.consumerId}</td>
 		<td>${consumer.consumerName}</td>
@@ -29,10 +29,8 @@
 		<td>${consumer.consumerAddress}</td>
 		<td>${consumer.consumerPhone}</td>
 		<td>${consumer.consumerZip}</td>
-		<td><a href="${pageContext.request.contextPath }/consumerUpdate?consumerId=${consumer.consumerId}">修改</a></td>
 	</tr>
 </c:forEach>
-	<tr><a href="${pageContext.request.contextPath }/addresseeManager?consumerId=${consumer.consumerId}">收获地址管理</a></tr>
 </table> 
 </form>
 </body>

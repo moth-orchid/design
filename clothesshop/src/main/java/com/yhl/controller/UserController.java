@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
@@ -84,6 +85,7 @@ public class UserController {
 				mv.setViewName("seller");
 				return mv;
 			}else {
+				mv.setViewName("seller_regist");
 				return mv;
 			}
 		}
@@ -96,12 +98,14 @@ public class UserController {
 			Boolean flag=userSelect.queryByNameAndPassword(consumer);
 			System.out.println(flag);
 			if(flag==true) {
+				System.out.println(".............");
 				Consumer consumer1=userSelect.query(consumer);
 				System.out.println(consumer1+"/////");
 				mv.addObject("consumer", consumer1);
 				mv.setViewName("consumer");
 				return mv;
 			}else {
+				mv.setViewName("consumer_regist");
 				return mv;
 			}
 		}
@@ -228,4 +232,19 @@ public class UserController {
 		
 		return mv;
 	}
+	
+	@RequestMapping(value = "/addresseeManager", method = RequestMethod.GET)
+	public ModelAndView addresseeManager(@ModelAttribute Consumer consumer) {
+		ModelAndView mv=new ModelAndView();
+		
+		List<Address> list=userSelect.queryAddresseeById(consumer);
+		
+		System.out.println(list+"////.....?///");
+		mv.setViewName("addresseeManager");
+		mv.addObject("addressList", list);
+		mv.addObject("consumerId", consumer.getConsumerId());
+		return mv;
+	}
+	
+	
 }

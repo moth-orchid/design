@@ -1,5 +1,7 @@
 package com.yhl.entity;
 
+import java.util.List;
+
 public class Consumer {
 	private Integer consumerId;
 	
@@ -15,6 +17,7 @@ public class Consumer {
 	
 	private String consumerZip;
 	
+	private List<Address> address;
 	public Consumer() {
 		// TODO Auto-generated constructor stub
 	}
@@ -73,6 +76,15 @@ public class Consumer {
 
 	public void setConsumerZip(String consumerZip) {
 		this.consumerZip = consumerZip;
+	}
+	
+
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
 	}
 
 	@Override
