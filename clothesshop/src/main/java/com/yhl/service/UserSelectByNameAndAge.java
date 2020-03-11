@@ -153,5 +153,17 @@ public class UserSelectByNameAndAge implements UserSelect{
 		List<Address> list=userDao.queryAddresseeById(consumer);
 		return list;
 	}
+
+	@Override
+	public void addAddress(Address address) {
+		userDao.addAddress(address);
+		
+	}
+
+	@Override
+	public void deleteAddress(Address address) {
+		userDao.deleteAddress(address);
+		
+	}
 	
 }

@@ -232,7 +232,7 @@ public class UserController {
 		
 		return mv;
 	}
-	
+	//输出所有收货地址
 	@RequestMapping(value = "/addresseeManager", method = RequestMethod.GET)
 	public ModelAndView addresseeManager(@ModelAttribute Consumer consumer) {
 		ModelAndView mv=new ModelAndView();
@@ -245,6 +245,44 @@ public class UserController {
 		mv.addObject("consumerId", consumer.getConsumerId());
 		return mv;
 	}
+	//新增收货地址
+	@RequestMapping(value = "/addAddress", method = RequestMethod.GET)
+	public ModelAndView addAddress(@ModelAttribute Consumer consumer) {
+		ModelAndView mv=new ModelAndView();
+		System.out.println("yonhuid"+consumer.getConsumerId());
+		mv.addObject("consumerId", consumer.getConsumerId());
+		mv.setViewName("addAddress");
+		return mv;
+	}
+	@RequestMapping(value = "/addAddress1", method = RequestMethod.GET)
+	public ModelAndView addAddress1(@ModelAttribute Address address,String consumerId)   {
+		System.out.println(consumerId);
+		System.out.println(address);
+		Consumer consumer=new Consumer();
+		consumer.setConsumerId(Integer.parseInt(consumerId));
+		address.setConsumer(consumer);
+		userSelect.addAddress(address);
+		ModelAndView mv=addresseeManager(address.getConsumer());
+		return mv;
+	}
 	
+	@RequestMapping(value = "/addressDelete", method = RequestMethod.GET)
+	public ModelAndView addressDelete(@ModelAttribute Address address,String consumerId) { 		
+		System.out.println("删除收货地址");
+		System.out.println(address);
+		userSelect.deleteAddress(address);
+		Consumer consumer=new Consumer();
+		consumer.setConsumerId(Integer.parseInt(consumerId));
+		ModelAndView mv=addresseeManager(consumer);
+		return mv;	    
+	}
+	
+	@RequestMapping(value = "/consumerUpdate", method = RequestMethod.GET)
+	public ModelAndView consumerUpdate(@ModelAttribute Consumer consumer) { 		
+		System.out.println("修改个人信息");
+		ModelAndView mv=new ModelAndView();
+		
+		return mv;	    
+	}
 	
 }

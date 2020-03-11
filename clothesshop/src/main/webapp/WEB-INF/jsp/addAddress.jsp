@@ -6,23 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户登录</title>
+<title>添加收货地址</title>
 </head>
 <body>
-<h1>服装销售系统</h1>
-<form action="${pageContext.request.contextPath }/consumer" method="get">
-<table width="100%" border=1  align="center" height="300px" title="服装销售系统">
+<form action="${pageContext.request.contextPath }/addAddress1" method="get">
+<table width="100%" border=1  align="center" height="300px">
 <tr>
-<td >用户名:<input type="text" name="name"></td>
+<td >收件人：<input type="text" name="addressee"></td>
 </tr>
 <tr>
-<td >密码:   <input type="text" name="password"></td>
+<td >收件地址;<input type="text" name="address"></td>
 </tr>
 <tr>
-<td >身份:   <input type="text" name="status"></td>
+<td >电话：<input type="text" name="phone"></td>
+<input  type="hidden" name="consumerId" value="${consumerId}" >
 </tr>
 <tr>
-<td><input type="submit" value="登录"/></td>
+<td><input type="submit" value="添加"/></td>
 </tr>
 </table> 
 </form>

@@ -51,4 +51,8 @@ public interface UserSelect {
 	public Consumer queryById(Consumer consumer);
 
 	public List<Address> queryAddresseeById(Consumer consumer);
+
+	public void addAddress(Address address);
+
+	public void deleteAddress(Address address);
 }

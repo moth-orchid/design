@@ -148,6 +148,20 @@
 		where a.cus_id=#{consumerId} and a.cus_id=c.consumer_id
     	
     </select>
+    
+    <insert id="addAddress" parameterType="Address" useGeneratedKeys="true" keyProperty="id"> 
+		insert into
+		address_table
+		(addressee,address,phone,cus_id)
+		values (#{addressee},#{address},#{phone},#{consumer.consumerId})
+	</insert>
+	
+	<delete id="deleteAddress" parameterType="Address">
+		delete 
+		from address_table
+		where id=#{id}
+	</delete>
+	
 <!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 

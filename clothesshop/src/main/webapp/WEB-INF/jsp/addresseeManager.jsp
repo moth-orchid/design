@@ -10,7 +10,7 @@
 </head>
 <body>
 	地址列表：
-	<a href="${pageContext.request.contextPath }/addAddress?cus_id=${consumerId}">新增</a>
+	<a href="${pageContext.request.contextPath }/addAddress?consumerId=${consumerId}">新增</a>
 <table width="100%" border=1>
 	<tr>
 		<td>地址id</td>
@@ -25,7 +25,7 @@
 		<td>${address.addressee}</td>
 		<td>${address.address}</td>	
 		<td>${address.phone}</td>	
-		<td><a href="${pageContext.request.contextPath }/addressDelete?id=${address.id}">删除</a></td>
+		<td><a href="${pageContext.request.contextPath }/addressDelete?id=${address.id}&consumerId=${consumerId}">删除</a></td>
 	</tr>
 </c:forEach>
 
