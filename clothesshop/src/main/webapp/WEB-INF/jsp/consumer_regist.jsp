@@ -8,26 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户注册</title>
 </head>
-<body>
+<body background="${pageContext.request.contextPath }/images/consumer.jpg" >
+<h3 align="center" >注册开启购物之旅吧！</h3>
 <form action="${pageContext.request.contextPath }/consumerRegist" method="get">
-<table width="100%" border=1  align="center" height="300px">
+<table  width="400px" background="" border=1  align="center" height="300px">
 <tr>
-<td >用户名：<input type="text" name="consumerName"></td>
+<td >用户名：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerName"></td>
 </tr>
 <tr>
-<td >密码：<input type="text" name="consumerPassword"></td>
+<td >密&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerPassword"></td>
 </tr>
 <tr>
-<td >邮箱：<input type="text" name="consumerEmail"></td>
+<td >邮&nbsp;&nbsp;&nbsp;箱：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerEmail"></td>
 </tr>
 <tr>
-<td >地址：<input type="text" name="consumerAddress"></td>
+<td >地&nbsp;&nbsp;&nbsp;址：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerAddress"></td>
 </tr>
 <tr>
-<td >电话：<input type="text" name="consumerPhone"></td>
+<td >电&nbsp;&nbsp;&nbsp;话：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerPhone"></td>
 </tr>
 <tr>
-<td >邮编：<input type="text" name="consumerZip"></td>
+<td >邮&nbsp;&nbsp;&nbsp;编：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="consumerZip"></td>
 </tr>
 <tr>
 <td><input type="submit" value="注册"/></td>
