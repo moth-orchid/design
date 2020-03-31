@@ -50,6 +50,12 @@
 		where seller_name=#{sellerName} and seller_password=#{sellerPassword}
 	</select>
 	
+	<select id="queryByNameAndPassword3"  parameterType="Seller">
+		select 
+		seller_id "sellerId"
+		from seller_table
+		where seller_name=#{sellerName} and seller_password=#{sellerPassword}
+	</select>
 	
 	<select id="queryByNameAndPassword2" resultType="Admin" parameterType="Admin">
 		select 
@@ -59,6 +65,7 @@
 		from admin_table
 		where admin_name=#{adminName} and admin_password=#{adminPassword}
 	</select>
+	
 	<insert id="insertConsumer" parameterType="Consumer" useGeneratedKeys="true" keyProperty="consumerId"> 
 		insert into
 		consumer_table
@@ -83,6 +90,18 @@
 		from seller_table
 	</select>
 	
+	<select id="selectAllClothes" resultType="Clothes" >
+		select 
+		clothes_id "clothesId",
+		clothes_introduction "clothesIntroduction",
+		clothes_price "price",
+		clothes_img "clothesImg",
+		clothes_count "clothesCount",
+		sort_id "sortId",
+		seller_id "sellerId"
+		from clothes_table
+	</select>
+	
 	<delete id="deleteConsumer" parameterType="Consumer">
 		delete 
 		from consumer_table
@@ -100,6 +119,13 @@
 		delete 
 		from seller_table
 		where seller_id=#{sellerId}
+	</delete>
+	
+	
+	<delete id="clothesDelete" >
+		delete 
+		from clothes_table
+		where clothes_id=#{clothesId}
 	</delete>
 	
 	<insert id="addSeller" parameterType="Seller" useGeneratedKeys="true" keyProperty="sellerId"> 

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
+import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
 import com.yhl.entity.User;
@@ -82,7 +83,9 @@ public class UserController {
 			Boolean flag=userSelect.queryByNameAndPassword1(seller);
 			System.out.println(flag);
 			if(flag==true) {
-				mv.setViewName("seller");
+				Integer sellerId=userSelect.queryByNameAndPassword2(seller);
+				 mv.setViewName("seller"); 
+				mv.addObject("sellerId", sellerId);
 				return mv;
 			}else {
 				mv.setViewName("seller_regist");
@@ -168,6 +171,30 @@ public class UserController {
 	    mv.setViewName("sellerManager");
 	    
 	    return mv; 	    
+	}
+	
+	@RequestMapping(value = "/clothesManagerByAdmin", method = RequestMethod.GET)
+	public ModelAndView clothesManagerByAdmin() {
+		ModelAndView mv=new ModelAndView(); 
+		
+		System.out.println("商品管理");
+				
+	    List<Clothes> clothesList=userSelect.selectAllClothes();
+		
+	    System.out.println(clothesList);
+	    mv.addObject("clothesList", clothesList);
+	    mv.setViewName("clothesManager");
+	    
+	    return mv; 	    
+	}
+	
+	@RequestMapping(value = "/clothesDelete", method = RequestMethod.GET)
+	public ModelAndView clothesDelete(@ModelAttribute Clothes clothes) {
+	
+		userSelect.clothesDelete(clothes.getClothesId());
+		
+		ModelAndView mv=clothesManagerByAdmin();
+		return mv;
 	}
 	
 	@RequestMapping(value = "/consumerDelete", method = RequestMethod.GET)

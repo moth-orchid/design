@@ -8,26 +8,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户注册</title>
 </head>
-<body>
+<body background="${pageContext.request.contextPath }/images/seller.jpg"
+ style="background-size: cover;background-repeat: no-repeat;">
+<h1 align="center" >欢迎入驻</h1>
 <form action="${pageContext.request.contextPath }/sellerRegist" method="get">
-<table width="100%" border=1  align="center" height="300px">
+<table width="400px" border=1  align="center" height="300px">
 <tr>
-<td >用户名：<input type="text" name="sellerName"></td>
+<td >用户名：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerName"></td>
 </tr>
 <tr>
-<td >密码：<input type="text" name="sellerPassword"></td>
+<td >密&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerPassword"></td>
 </tr>
 <tr>
-<td >邮箱：<input type="text" name="sellerEmail"></td>
+<td >邮&nbsp;&nbsp;&nbsp;箱：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerEmail"></td>
 </tr>
 <tr>
-<td >地址：<input type="text" name="sellerAddress"></td>
+<td >地&nbsp;&nbsp;&nbsp;址：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerAddress"></td>
 </tr>
 <tr>
-<td >电话：<input type="text" name="sellerPhone"></td>
+<td >电&nbsp;&nbsp;&nbsp;话：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerPhone"></td>
 </tr>
 <tr>
-<td >邮编：<input type="text" name="sellerZip"></td>
+<td >邮&nbsp;&nbsp;&nbsp;编：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="sellerZip"></td>
 </tr>
 <tr>
 <td><input type="submit" value="注册"/></td>

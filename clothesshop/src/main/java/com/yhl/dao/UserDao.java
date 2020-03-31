@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
+import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
 import com.yhl.entity.User;
@@ -61,6 +62,12 @@ public interface UserDao {
 	public void addAddress(Address address);
 
 	public void deleteAddress(Address address);
+
+	public Integer queryByNameAndPassword3(Seller seller);
+
+	public List<Clothes> selectAllClothes();
+
+	public void clothesDelete(Integer clothesId);
 
     
 

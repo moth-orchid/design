@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.yhl.dao.UserDao;
 import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
+import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
 import com.yhl.entity.User;
@@ -164,6 +165,24 @@ public class UserSelectByNameAndAge implements UserSelect{
 	public void deleteAddress(Address address) {
 		userDao.deleteAddress(address);
 		
+	}
+
+	@Override
+	public Integer queryByNameAndPassword2(Seller seller) {
+		Integer sellerId=userDao.queryByNameAndPassword3(seller);
+		return sellerId;
+	}
+
+	@Override
+	public List<Clothes> selectAllClothes() {
+		// TODO Auto-generated method stub
+		return userDao.selectAllClothes();
+	}
+
+	@Override
+	public void clothesDelete(Integer clothesId) {
+		// TODO Auto-generated method stub
+		userDao.clothesDelete(clothesId);
 	}
 	
 }

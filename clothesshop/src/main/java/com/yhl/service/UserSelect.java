@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.yhl.entity.Address;
 import com.yhl.entity.Admin;
+import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
 import com.yhl.entity.User;
@@ -55,4 +56,10 @@ public interface UserSelect {
 	public void addAddress(Address address);
 
 	public void deleteAddress(Address address);
+
+	public Integer queryByNameAndPassword2(Seller seller);
+
+	public List<Clothes> selectAllClothes();
+
+	public void clothesDelete(Integer clothesId);
 }

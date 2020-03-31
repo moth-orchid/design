@@ -8,8 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户注册</title>
 </head>
-<body background="${pageContext.request.contextPath }/images/consumer.jpg" >
-<h3 align="center" >注册开启购物之旅吧！</h3>
+<body background="${pageContext.request.contextPath }/images/consumer.jpg" 
+style="background-size: cover;background-repeat: no-repeat;" >
+<h1 align="center" >注册开启购物之旅吧！</h1>
 <form action="${pageContext.request.contextPath }/consumerRegist" method="get">
 <table  width="400px" background="" border=1  align="center" height="300px">
 <tr>

@@ -1,5 +1,7 @@
 package com.yhl.entity;
 
+import java.util.List;
+
 public class Seller {
 	private Integer sellerId;
 	
@@ -14,6 +16,8 @@ public class Seller {
 	private String sellerPhone;
 	
 	private String sellerZip;
+	
+	private List<Clothes> clothes;
 	
 	public Seller() {
 		// TODO Auto-generated constructor stub
@@ -73,6 +77,15 @@ public class Seller {
 
 	public void setSellerZip(String sellerZip) {
 		this.sellerZip = sellerZip;
+	}
+	
+	
+	public List<Clothes> getClothes() {
+		return clothes;
+	}
+
+	public void setClothes(List<Clothes> clothes) {
+		this.clothes = clothes;
 	}
 
 	@Override
