@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yhl.dao.ClothesDao">
+	<select id="selectAllSort" resultType="Sort">
+		select *
+		from sort_table
+	</select>
+	
+	<insert id="addSort" parameterType="Sort" useGeneratedKeys="true" keyProperty="sortId">
+	insert into
+	sort_table
+	(sort_name)
+	values(#{sortName})
+	</insert>
+	
+	<delete id="sortDelete" parameterType="Sort">
+	delete 
+	from sort_table
+	where sort_id=#{sortId}
+	</delete>
+	
+	<select id="selectSeller" parameterType="Seller" resultType="Seller">
+		select 
+		seller_id "sellerId",
+		seller_name "sellerName",
+		seller_password "sellerPassword",
+		seller_email "sellerEmail",
+		seller_address "sellerAddress",
+		seller_phone "sellerPhone",
+		seller_zip "sellerZip"
+		from seller_table
+		where seller_id=#{sellerId}
+	</select>
+	
+	<select id="selectAllClothes" parameterType="Seller" resultType="Clothes">
+		select *
+		from clothes_table
+		where seller_id=#{sellerId}
+	</select>
+</mapper>

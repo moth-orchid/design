@@ -50,7 +50,7 @@
 		where seller_name=#{sellerName} and seller_password=#{sellerPassword}
 	</select>
 	
-	<select id="queryByNameAndPassword3"  parameterType="Seller">
+	<select id="queryByNameAndPassword3" resultType="int" parameterType="Seller">
 		select 
 		seller_id "sellerId"
 		from seller_table

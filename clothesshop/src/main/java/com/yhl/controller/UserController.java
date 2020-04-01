@@ -84,7 +84,7 @@ public class UserController {
 			System.out.println(flag);
 			if(flag==true) {
 				Integer sellerId=userSelect.queryByNameAndPassword2(seller);
-				 mv.setViewName("seller"); 
+				mv.setViewName("sellerIndex"); 
 				mv.addObject("sellerId", sellerId);
 				return mv;
 			}else {
