@@ -77,8 +77,8 @@ function addShopCart(bookName){
 	<div class="top">
     	<div class="top_center">
             <ul class="top_bars">
-            	<li><a href="${pageContext.request.contextPath }/userLogin">登录</a>|</li>
-            	<!-- <li><a href="index.html">退出</a>|</li> -->
+            	<%-- <li><a href="${pageContext.request.contextPath }/userLogin">登录</a>|</li> --%>
+            	<li><a href="${pageContext.request.contextPath }/userLogin">退出</a>|</li>
                 <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
                 <li><a href="#">关注商城<span class="jt_down"></span></a>|</li>
                 <li><a href="#">网站导航<span class="jt_down"></span></a></li>
@@ -96,7 +96,7 @@ function addShopCart(bookName){
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="userinfo.html">个人信息</a>
+            	<a href="${pageContext.request.contextPath }/personalManager?consumerId=${consumerId}">个人信息</a>
                 <span class="sj_down"></span>
              </div>
             <div id="g" class="tsc">
@@ -112,10 +112,10 @@ function addShopCart(bookName){
                 全部服装分类
             </div>
             <ul>
-                <li><a href="${pageContext.request.contextPath }/showC1" target="">短袖</a></li>
-                <li><a href="${pageContext.request.contextPath }/showC2">风衣</a></li>
-                <li><a href="${pageContext.request.contextPath }/showC3">棉衣</a></li>
-                <li><a href="${pageContext.request.contextPath }/showC4">裤子</a></li>
+                <li><a href="${pageContext.request.contextPath }/showDuanXiu?SortId=3" target="">短袖</a></li>
+                <li><a href="${pageContext.request.contextPath }/showFengYi?SortId=1">风衣</a></li>
+                <li><a href="${pageContext.request.contextPath }/showMianYi?SortId=2">棉衣</a></li>
+                <li><a href="${pageContext.request.contextPath }/showKuZi?SortId=4">裤子</a></li>
             </ul>
         </div>
     </div>
@@ -125,7 +125,38 @@ function addShopCart(bookName){
     	<!--热卖-->
     	<div class="c4_b1">
         	<ul class="c4_b1_boxes">
-            	<li>
+        		<c:forEach items="${clothesList}" var="clothes" varStatus="BrandlistStatu">
+        			<c:if test="${ BrandlistStatu.count%4!='0'}">
+        				<li>
+        					<img  src="${pageContext.request.contextPath}/${clothes.clothesImg}">
+        					<div class="c4_b1_box_txt">
+                    			<p>${clothes.clothesIntroduction}</p>
+                        		<h1>活动价：<b>${clothes.price}</b></h1>
+                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}">立即抢购</a></h2>
+                    		</div>
+        					<%-- <c:if test="${ BrandlistStatu.last}">     					
+        					<img  src="${pageContext.request.contextPath}/${clothes.clothesImg}">
+        					<div class="c4_b1_box_txt">
+                    			<p>${clothes.clothesIntroduction}</p>
+                        		<h1>活动价：<b>${clothes.price}</b></h1>
+                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}>立即抢购</a></h2>
+                    		</div>
+                    		</c:if> --%>
+        					</li>
+        					<%-- </c:if> --%>
+        			</c:if>
+        			<c:if test="${ BrandlistStatu.count%4=='0'}">
+        				<li>
+        					<img  src="${pageContext.request.contextPath}/${clothes.clothesImg}">
+        					<div class="c4_b1_box_txt">
+                    			<p>${clothes.clothesIntroduction}</p>
+                        		<h1>活动价：<b>${clothes.price}</b></h1>
+                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}">立即抢购</a></h2>
+                    		</div>
+        				</li>
+        			</c:if>
+        		</c:forEach>
+    <%--         	<li>
                 	<img src="upload/u=1599784163,1193658515&fm=26&gp=0.jpg" >
                     <div class="c4_b1_box_txt">
                     	<p>短袖1</p>
@@ -258,7 +289,7 @@ function addShopCart(bookName){
                         <h1>活动价：<b>￥230</b></h1>
                         <h2><a href="${pageContext.request.contextPath }/userLogin">立即抢购</a></h2>
                     </div>
-                </li>
+                </li> --%>
             </ul>
         </div>
     <!--脚部-->

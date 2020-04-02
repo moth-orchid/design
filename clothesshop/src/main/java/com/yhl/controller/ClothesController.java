@@ -90,4 +90,49 @@ public class ClothesController {
 			mv.setViewName("sellerPersonal");
 			return mv;
 		}
+		
+		//主页中短袖
+		@RequestMapping(value = "/showDuanXiu", method = RequestMethod.GET)
+		public ModelAndView showDuanXiu(@ModelAttribute Sort sort) {
+			ModelAndView mv=new ModelAndView();
+			
+			List<Clothes> clothesList=clothesSelect.showDuanXiu(sort);
+			mv.addObject("clothesList", clothesList);
+		    mv.setViewName("showDuanXiu");
+			return mv;
+		}
+		//主页中风衣
+		@RequestMapping(value = "/showFengYi", method = RequestMethod.GET)
+		public ModelAndView showFengYi(@ModelAttribute Sort sort) {
+			ModelAndView mv=new ModelAndView();
+			
+			List<Clothes> clothesList=clothesSelect.showFengYi(sort);
+			mv.addObject("clothesList", clothesList);
+		    mv.setViewName("showFengYi");
+			return mv;
+		}
+		
+		//主页中棉衣
+		@RequestMapping(value = "/showMianYi", method = RequestMethod.GET)
+		public ModelAndView showMianYi(@ModelAttribute Sort sort) {
+			ModelAndView mv=new ModelAndView();
+			
+			List<Clothes> clothesList=clothesSelect.showMianYi(sort);
+			mv.addObject("clothesList", clothesList);
+		    mv.setViewName("showMianYi");
+			return mv;
+		}
+		
+		//主页中裤子
+		@RequestMapping(value = "/showKuZi", method = RequestMethod.GET)
+		public ModelAndView showKuZi(@ModelAttribute Sort sort) {
+			ModelAndView mv=new ModelAndView();
+			
+			List<Clothes> clothesList=clothesSelect.showKuZi(sort);
+			mv.addObject("clothesList", clothesList);
+		    mv.setViewName("showKuZi");
+			return mv;
+		}
+		
+		
 }

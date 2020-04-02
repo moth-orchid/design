@@ -21,5 +21,20 @@ public interface ClothesDao {
 
 
 	List<Clothes> selectAllClothes(Seller seller);
+
+
+	List<Clothes> selectAllClothesIndex();
+
+
+	List<Clothes> showDuanXiu(Sort sort);
+
+
+	List<Clothes> showFengYi(Sort sort);
+
+
+	List<Clothes> showMianYi(Sort sort);
+
+
+	List<Clothes> showKuZi(Sort sort);
 	
 }

@@ -43,6 +43,36 @@ public class ClothesOperate implements ClothesSelect{
 		List<Clothes> clothesList=clothesDao.selectAllClothes(seller);
 		return clothesList;
 	}
+
+	@Override
+	public List<Clothes> selectAllClothesIndex() {
+		List<Clothes> clothesList=clothesDao.selectAllClothesIndex();
+		return clothesList;
+	}
+
+	@Override
+	public List<Clothes> showDuanXiu(Sort sort) {
+		List<Clothes> clothesList=clothesDao.showDuanXiu(sort);
+		return clothesList;
+	}
+
+	@Override
+	public List<Clothes> showFengYi(Sort sort) {
+		List<Clothes> clothesList=clothesDao.showFengYi(sort);
+		return clothesList;
+	}
+
+	@Override
+	public List<Clothes> showMianYi(Sort sort) {
+		List<Clothes> clothesList=clothesDao.showMianYi(sort);
+		return clothesList;
+	}
+
+	@Override
+	public List<Clothes> showKuZi(Sort sort) {
+		List<Clothes> clothesList=clothesDao.showKuZi(sort);
+		return clothesList;
+	}
 	
 	
 }

@@ -20,6 +20,7 @@ import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
 import com.yhl.entity.User;
+import com.yhl.service.ClothesSelect;
 import com.yhl.service.UserSelect;
 
 @Controller
@@ -27,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	private UserSelect userSelect;
+	
+	@Autowired
+	private ClothesSelect clothesSelect;
 	
 	/*
 	 * @RequestMapping(value = "/userList", method = RequestMethod.GET) public
@@ -104,8 +108,10 @@ public class UserController {
 				System.out.println(".............");
 				Consumer consumer1=userSelect.query(consumer);
 				System.out.println(consumer1+"/////");
-				mv.addObject("consumer", consumer1);
-				mv.setViewName("consumer");
+				mv.addObject("consumerId", consumer1.getConsumerId());
+				List<Clothes> clothesList=selectAllClothesIndex();
+				mv.addObject("clothesList", clothesList);
+				mv.setViewName("estoreIndex");
 				return mv;
 			}else {
 				mv.setViewName("consumer_regist");
@@ -312,4 +318,10 @@ public class UserController {
 		return mv;	    
 	}
 	
+	@RequestMapping(value = "/selectAllClothesIndex", method = RequestMethod.GET)
+	public List<Clothes> selectAllClothesIndex() {
+		
+		List<Clothes> clothesList=clothesSelect.selectAllClothesIndex();
+		return clothesList;
+	}
 }
