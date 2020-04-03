@@ -1,26 +1,20 @@
 package com.yhl.entity;
 
-import java.util.List;
-
 public class ShopCart {
-	private Integer shopCarId;
+	private Integer shopCartId;
 	
 	private Consumer consumerId;
-	
-	private List<Clothes> clothesId;
-	
-	private Integer count;
 	
 	public ShopCart() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getShopCarId() {
-		return shopCarId;
+	public Integer getShopCartId() {
+		return shopCartId;
 	}
 
-	public void setShopCarId(Integer shopCarId) {
-		this.shopCarId = shopCarId;
+	public void setShopCartId(Integer shopCartId) {
+		this.shopCartId = shopCartId;
 	}
 
 	public Consumer getConsumerId() {
@@ -31,29 +25,14 @@ public class ShopCart {
 		this.consumerId = consumerId;
 	}
 
-	
-
-	public List<Clothes> getClothesId() {
-		return clothesId;
-	}
-
-	public void setClothesId(List<Clothes> clothesId) {
-		this.clothesId = clothesId;
-	}
-
-	public Integer getCount() {
-		return count;
-	}
-
-	public void setCount(Integer count) {
-		this.count = count;
-	}
-
 	@Override
 	public String toString() {
-		return "ShopCart [shopCarId=" + shopCarId + ", consumerId=" + consumerId + ", clothesId=" + clothesId
-				+ ", count=" + count + "]";
+		return "ShopCart [shopCartId=" + shopCartId + ", consumerId=" + consumerId + ", getShopCartId()="
+				+ getShopCartId() + ", getConsumerId()=" + getConsumerId() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+
+	
 	
 	
 }

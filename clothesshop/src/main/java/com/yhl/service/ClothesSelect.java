@@ -36,5 +36,8 @@ public interface ClothesSelect {
 	Seller querySellerById(Seller sellerId);
 
 	Sort querySortById(Sort sortId);
+
+	void addCart(Integer clothesId, Integer consumerId, Integer count);
+
 	
 }

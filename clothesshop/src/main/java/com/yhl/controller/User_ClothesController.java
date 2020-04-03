@@ -39,12 +39,14 @@ public class User_ClothesController {
 		return "c4";
 	}
 	
-	/*
-	 * @RequestMapping(value = "/addShopaCart", method = RequestMethod.GET) public
-	 * ModelAndView addShopaCart() {
-	 * 
-	 * }
-	 */
+	//加入购物车
+	 @RequestMapping(value = "/addCart", method = RequestMethod.GET)
+	 public ModelAndView addCart(Integer clothesId,Integer consumerId,Integer count) {
+		 clothesSelect.addCart(clothesId,consumerId,count);
+		 
+		 return enterDetail( clothesId, consumerId);
+	 }
+	 
 	
 	//进入商品详情页
 	
@@ -66,4 +68,11 @@ public class User_ClothesController {
 		mv.addObject("sort", sort);
 		return mv;
 	}
+	
+	//购物车页面
+	 @RequestMapping(value = "/shopCart", method = RequestMethod.GET)
+	 public String shopCart() {
+		 return "ShopCart";
+	 }
+	
 }

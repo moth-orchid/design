@@ -114,15 +114,19 @@
 	
 	<select id="queryClothesById" parameterType="int" resultType="Clothes" >
 		select 
-		clothes_id "clothesId",
-		clothes_introduction "clothesIntroduction",
-		clothes_price "price",
-		clothes_img "clothesImg",
-		clothes_count "clothesCount",
-		sort_id "sortId",
-		seller_id "sellerId"
-		from clothes_table
-		where clothes_id=#{clothesId} 
+		c.clothes_id "clothesId",
+		c.clothes_introduction "clothesIntroduction",
+		c.clothes_price "price",
+		c.clothes_img "clothesImg",
+		c.clothes_count "clothesCount",
+		s1.sort_id "sortId.sortId",
+		s1.sort_name "sort_id.sortName",
+		s2.seller_id "seller_id.sellerId",
+		s2.seller_name "sellerId.sellerName",
+		s2.seller_address "sellerId.sellerAddress",
+		s2.seller_phone "sellerId.sellerPhone"
+		from clothes_table c,sort_table s1,seller_table s2
+		where c.clothes_id=#{clothesId}  and c.sort_id=s1.sort_id and c.seller_id=s2.seller_id
 	</select>
 	
 	<select id="querySellerById" resultType="Seller">
@@ -143,4 +147,26 @@
 		from sort_table
 		where sort_id=#{sortId}
 	</select>
+	
+	
+	<select id="selectShopCart"  parameterType="int"  resultType="ShopCart">
+		select *
+		from shopCart_table
+		where consumer_id=#{consumerId}
+	</select>
+	
+	<insert id="insertShopCart" parameterType="ShopCart" useGeneratedKeys="true" keyProperty="shopCartId">
+		insert into
+		shopCart_table
+		(consumer_id)
+		values(#{consumerId.consumerId})	
+	</insert>
+	
+	<insert id="addClothesToShop" parameterType="ShopCartClothes" useGeneratedKeys="true" keyProperty="shopCartClothesId">
+		insert into
+		shopCartClothes_table
+		(shopCart_id,clothes_id,count)
+		values(#{shopCart.shopCartId},#{clothes.clothesId},#{count})	
+	</insert>
+	
 </mapper>

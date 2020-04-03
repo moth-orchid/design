@@ -106,7 +106,7 @@
                         		<span class="Hgt">库存${clothes.clothesCount}</span>
                         	</div>
                         	<div class="nobdr-btns">
-                        		<button class="addcart hu"><img src="images/shop.png" width="25" height="25"/>加入购物车</button>
+                        		<button class="addcart hu"><img src="images/shop.png" width="25" height="25"/><a href="${pageContext.request.contextPath }/addCart?consumerId=${consumerId}&clothesId=${clothes.clothesId}" >加入购物车</a></button>
                         		<button class="addcart yh"><img src="images/ht.png" width="25" height="25"/>立即购买</button>
                         	</div>
                         	<div class="guarantee">

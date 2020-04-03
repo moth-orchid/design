@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.yhl.entity.Clothes;
 import com.yhl.entity.Seller;
+import com.yhl.entity.ShopCart;
+import com.yhl.entity.ShopCartClothes;
 import com.yhl.entity.Sort;
 
 public interface ClothesDao {
@@ -45,6 +47,15 @@ public interface ClothesDao {
 
 
 	Sort querySortById(Sort sortId);
+
+
+	ShopCart selectShopCart(Integer consumerId);
+
+
+	void insertShopCart(ShopCart shopCart);
+
+
+	void addClothesToShop(ShopCartClothes shopCartClothes);
 
 
 	

@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.yhl.dao.ClothesDao;
 import com.yhl.entity.Clothes;
+import com.yhl.entity.Consumer;
 import com.yhl.entity.Seller;
+import com.yhl.entity.ShopCart;
+import com.yhl.entity.ShopCartClothes;
 import com.yhl.entity.Sort;
 
 @Service
@@ -91,6 +94,45 @@ public class ClothesOperate implements ClothesSelect{
 		Sort sort=clothesDao.querySortById(sortId);
 		return sort;
 	}
+	
+	//添加购物车
+	@Override
+	public void addCart(Integer clothesId, Integer consumerId, Integer count) {
+		System.out.println(clothesId);
+		//首先判断是否给人已经有购物车
+		ShopCart shopCart=clothesDao.selectShopCart(consumerId);
+		//1:没有购物车
+		if(shopCart==null) {
+			shopCart=new ShopCart();
+			Consumer consumer=new Consumer();
+			consumer.setConsumerId(consumerId);
+			shopCart.setConsumerId(consumer);
+			//将购物车放到数据库中
+			clothesDao.insertShopCart(shopCart);
+			//再次查询数据库
+			ShopCart shopCart1=clothesDao.selectShopCart(consumerId);
+			//将服装放入购物车中
+			ShopCartClothes shopCartClothes=new ShopCartClothes();
+			shopCartClothes.setCount(count);
+			shopCartClothes.setShopCart(shopCart1);
+			Clothes clothes=new Clothes();
+			clothes.setClothesId(clothesId);
+			shopCartClothes.setClothes(clothes);
+			clothesDao.addClothesToShop(shopCartClothes);
+		}
+		//该顾客已经存在购物车
+		else {
+			//直接将服装放入购物车中
+			ShopCartClothes shopCartClothes=new ShopCartClothes();
+			shopCartClothes.setCount(count);
+			shopCartClothes.setShopCart(shopCart);
+			Clothes clothes=new Clothes();
+			clothes.setClothesId(clothesId);
+			shopCartClothes.setClothes(clothes);
+			clothesDao.addClothesToShop(shopCartClothes);
+		}
+	}
+
 	
 	
 }
