@@ -36,5 +36,16 @@ public interface ClothesDao {
 
 
 	List<Clothes> showKuZi(Sort sort);
+
+
+	Clothes queryClothesById(Integer clothesId);
+
+
+	Seller querySellerById(Seller sellerId);
+
+
+	Sort querySortById(Sort sortId);
+
+
 	
 }

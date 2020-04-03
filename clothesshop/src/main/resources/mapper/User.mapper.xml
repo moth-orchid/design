@@ -188,6 +188,8 @@
 		where id=#{id}
 	</delete>
 	
+	
+	
 <!-- 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId"> 
 		insert into
 		user_table(user_id,user_name,user_age) 

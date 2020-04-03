@@ -73,6 +73,24 @@ public class ClothesOperate implements ClothesSelect{
 		List<Clothes> clothesList=clothesDao.showKuZi(sort);
 		return clothesList;
 	}
+
+	@Override
+	public Clothes queryClothesById(Integer clothesId) {
+		Clothes clothes=clothesDao.queryClothesById(clothesId);
+		return clothes;
+	}
+
+	@Override
+	public Seller querySellerById(Seller sellerId) {
+		Seller seller=clothesDao.querySellerById(sellerId);
+		return seller;
+	}
+
+	@Override
+	public Sort querySortById(Sort sortId) {
+		Sort sort=clothesDao.querySortById(sortId);
+		return sort;
+	}
 	
 	
 }

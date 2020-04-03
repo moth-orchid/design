@@ -18,7 +18,7 @@ public class Clothes {
 	public Clothes() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Integer getClothesId() {
 		return clothesId;
 	}

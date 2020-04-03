@@ -5,8 +5,10 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.yhl.dao.ClothesDao;
 import com.yhl.dao.UserDao;
 import com.yhl.entity.Address;
+import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
 import com.yhl.entity.User;
 
@@ -14,6 +16,9 @@ public class UserDaoTest extends BaseTest{
 
     @Autowired
     private UserDao userDao;
+    
+    @Autowired
+	private ClothesDao clothesDao;
 
 
     @Test
@@ -39,4 +44,13 @@ public class UserDaoTest extends BaseTest{
     	System.out.println(list);
     	
     }
+    
+    @Test
+    public void testQuery() {
+    	Clothes clothes=clothesDao.queryClothesById(1);
+    	System.out.println(clothes);
+    	
+    }
+    
+    
 }

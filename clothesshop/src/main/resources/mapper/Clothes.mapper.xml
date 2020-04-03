@@ -112,4 +112,35 @@
 		where sort_id=#{sortId}
 	</select>
 	
+	<select id="queryClothesById" parameterType="int" resultType="Clothes" >
+		select 
+		clothes_id "clothesId",
+		clothes_introduction "clothesIntroduction",
+		clothes_price "price",
+		clothes_img "clothesImg",
+		clothes_count "clothesCount",
+		sort_id "sortId",
+		seller_id "sellerId"
+		from clothes_table
+		where clothes_id=#{clothesId} 
+	</select>
+	
+	<select id="querySellerById" resultType="Seller">
+		select 
+		seller_id "sellerId",
+		seller_name "sellerName",
+		seller_password "sellerPassword",
+		seller_email "sellerEmail",
+		seller_address "sellerAddress",
+		seller_phone "sellerPhone",
+		seller_zip "sellerZip"
+		from seller_table
+		where seller_id=#{sellerId}
+	</select>
+	
+	<select id="querySortById" resultType="Sort">
+		select *
+		from sort_table
+		where sort_id=#{sortId}
+	</select>
 </mapper>

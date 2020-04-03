@@ -112,7 +112,7 @@ function addShopCart(bookName){
                 全部服装分类
             </div>
             <ul>
-                <li><a href="${pageContext.request.contextPath }/showDuanXiu?SortId=3" target="">短袖</a></li>
+                <li><a href="${pageContext.request.contextPath }/showDuanXiu?SortId=3" target="_top">短袖</a></li>
                 <li><a href="${pageContext.request.contextPath }/showFengYi?SortId=1">风衣</a></li>
                 <li><a href="${pageContext.request.contextPath }/showMianYi?SortId=2">棉衣</a></li>
                 <li><a href="${pageContext.request.contextPath }/showKuZi?SortId=4">裤子</a></li>
@@ -132,14 +132,14 @@ function addShopCart(bookName){
         					<div class="c4_b1_box_txt">
                     			<p>${clothes.clothesIntroduction}</p>
                         		<h1>活动价：<b>${clothes.price}</b></h1>
-                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}">立即抢购</a></h2>
+                        		<h2><a href="${pageContext.request.contextPath }/enterDetail?clothesId=${clothes.clothesId}&consumerId=${consumerId}">立即抢购</a></h2>
                     		</div>
         					<%-- <c:if test="${ BrandlistStatu.last}">     					
         					<img  src="${pageContext.request.contextPath}/${clothes.clothesImg}">
         					<div class="c4_b1_box_txt">
                     			<p>${clothes.clothesIntroduction}</p>
                         		<h1>活动价：<b>${clothes.price}</b></h1>
-                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}>立即抢购</a></h2>
+                        		<h2><a href="${pageContext.request.contextPath }/enterDetail?clothesId=${clothes.clothes.clothesId}&consumerId=${consumerId}>立即抢购</a></h2>
                     		</div>
                     		</c:if> --%>
         					</li>
@@ -151,7 +151,7 @@ function addShopCart(bookName){
         					<div class="c4_b1_box_txt">
                     			<p>${clothes.clothesIntroduction}</p>
                         		<h1>活动价：<b>${clothes.price}</b></h1>
-                        		<h2><a href="${pageContext.request.contextPath }/addShopaCart?clothesId=${clothesId}">立即抢购</a></h2>
+                        		<h2><a href="${pageContext.request.contextPath }/enterDetail?clothesId=${clothes.clothesId}&consumerId=${consumerId}">立即抢购</a></h2>
                     		</div>
         				</li>
         			</c:if>
