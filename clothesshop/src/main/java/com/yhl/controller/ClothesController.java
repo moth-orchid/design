@@ -31,6 +31,7 @@ public class ClothesController {
 		
 		List<Clothes> clothesList=clothesSelect.selectAllClothes(seller);
 		mv.addObject("clothesList", clothesList);
+		mv.addObject("seller", seller);
 	    mv.setViewName("clothesManagerBySeller");
 		return mv;
 	}
@@ -88,6 +89,16 @@ public class ClothesController {
 			ModelAndView mv=new ModelAndView();
 			mv.addObject("sellerList", sellerList);
 			mv.setViewName("sellerPersonal");
+			return mv;
+		}
+		
+		//商家修改密码
+		@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
+		public ModelAndView updatePassword(@ModelAttribute Seller seller) {
+			System.out.println(seller);
+			ModelAndView mv=new ModelAndView();
+			mv.addObject("seller", seller);
+			mv.setViewName("updatePwd");
 			return mv;
 		}
 		

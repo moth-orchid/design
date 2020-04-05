@@ -9,6 +9,7 @@
 <title>商品管理</title>
 </head>
 <body> 
+<button><a href="${pageContext.request.contextPath }/addClothesBySeller?sellerId=${seller.sellerId}">新增商品</a></button>
 <table width="100%" border=1>
 	<tr>
 		<td>商品id</td>
@@ -22,7 +23,7 @@
 <c:forEach items="${clothesList}" var="clothes">
 	<tr height="100px">
 		<td>${clothes.clothesId}</td>
-		<td><img src="upload/${ clothes.clothesImg}"></td>
+		<td><img alt="ahhah1" src="${ clothes.clothesImg}" height="100px" width="100px"></td>
 		<td>${clothes.clothesIntroduction}</td>	
 		<td>${clothes.price}</td>
 		<td>${clothes.clothesCount}</td>
@@ -31,7 +32,7 @@
 	</tr>
 </c:forEach> 
 
-
+</table>
 
 </body>
 

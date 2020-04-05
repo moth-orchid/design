@@ -169,4 +169,19 @@
 		values(#{shopCart.shopCartId},#{clothes.clothesId},#{count})	
 	</insert>
 	
+	
+	<select id="sellectShopCart"  parameterType="int"  resultType="RealShopCart">
+		select 
+		c1.clothes_id "clothes.clothesId",
+		c1.clothes_introduction "clothes.clothesIntroduction",
+		c1.clothes_price "clothes.price",
+		c1.clothes_img "clothes.clothesImg",
+		c1.clothes_count "clothes.clothesCount",
+		c1.sort_id "clothes.sortId",
+		c1.seller_id "seller.sellerId",
+		s1.seller_name "seller.seller_name",
+		s3.count "count"
+		from seller_table s1,clothes_table c1,shopcart_table s2,shopcartclothes_table s3
+		where s2.consumer_id=#{consumerId} and s2.shopCart_id=s3.shopCart_id and s3.clothes_id=c1.clothes_id and c1.seller_id=s1.seller_id
+	</select>
 </mapper>

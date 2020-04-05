@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.yhl.dao.ClothesDao;
 import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
+import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
 import com.yhl.entity.ShopCart;
 import com.yhl.entity.ShopCartClothes;
@@ -133,6 +134,11 @@ public class ClothesOperate implements ClothesSelect{
 		}
 	}
 
+	@Override
+	public List<RealShopCart> sellectShopCart(Integer consumerId) {
+		List<RealShopCart> list=clothesDao.sellectShopCart(consumerId) ;
+		return list;
+	}
 	
 	
 }

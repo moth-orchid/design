@@ -100,7 +100,7 @@ function addShopCart(bookName){
                 <span class="sj_down"></span>
              </div>
             <div id="g" class="tsc">
-            	<a href="${pageContext.request.contextPath }/shopCart">去购物车结算</a>
+            	<a href="${pageContext.request.contextPath }/shopCart?consumerId=${consumerId}">去购物车结算</a>
                 <span class="sj_right"></span>
             </div>
         </div>

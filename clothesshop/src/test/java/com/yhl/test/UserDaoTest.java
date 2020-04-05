@@ -10,6 +10,7 @@ import com.yhl.dao.UserDao;
 import com.yhl.entity.Address;
 import com.yhl.entity.Clothes;
 import com.yhl.entity.Consumer;
+import com.yhl.entity.RealShopCart;
 import com.yhl.entity.User;
 
 public class UserDaoTest extends BaseTest{
@@ -47,8 +48,8 @@ public class UserDaoTest extends BaseTest{
     
     @Test
     public void testQuery() {
-    	Clothes clothes=clothesDao.queryClothesById(1);
-    	System.out.println(clothes);
+    	List<RealShopCart> realShopCart=clothesDao.sellectShopCart(1);
+    	System.out.println(realShopCart);
     	
     }
     

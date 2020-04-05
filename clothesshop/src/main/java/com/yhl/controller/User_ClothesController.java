@@ -1,5 +1,8 @@
 package com.yhl.controller;
 
+import java.io.InputStream;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yhl.entity.Clothes;
+import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
 import com.yhl.entity.Sort;
 import com.yhl.service.ClothesSelect;
@@ -71,8 +75,13 @@ public class User_ClothesController {
 	
 	//购物车页面
 	 @RequestMapping(value = "/shopCart", method = RequestMethod.GET)
-	 public String shopCart() {
-		 return "ShopCart";
+	 public ModelAndView shopCart(Integer consumerId) {
+		 ModelAndView mv=new ModelAndView();
+		 List<RealShopCart> realShopCart =clothesSelect.sellectShopCart(consumerId);
+		 mv.addObject("consumerId", consumerId);
+		 mv.addObject("realShopCart", realShopCart);
+		 mv.setViewName("ShopCart");
+		 return mv;
 	 }
 	
 }

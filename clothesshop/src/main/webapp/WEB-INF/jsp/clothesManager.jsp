@@ -23,7 +23,7 @@
 <c:forEach items="${clothesList}" var="clothes">
 	<tr height="100px">
 		<td>${clothes.clothesId}</td>
-		<td><img src="upload/${ clothes.clothesImg}"></td>
+		<td><img alt="ahhah1" src="${ clothes.clothesImg}" height="100px" width="100px"></td>
 		<td>${clothes.clothesIntroduction}</td>	
 		<td>${clothes.price}</td>
 		<td>${clothes.clothesCount}</td>

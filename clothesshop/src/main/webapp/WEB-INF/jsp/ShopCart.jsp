@@ -12,8 +12,8 @@
 </head>
 
 <body>
-<!-- <div id="header"><img src="images/taobao_logo.gif" alt="logo" /></div>
-<div id="nav">您的位置：<a href="#">首页</a> > <a href="#">我的淘宝</a> > 我的购物车</div>
+<div id="header"><img src="images/u=2514378785,3326817705&fm=11&gp=0.jpg" alt="logo" height="80px" width="150px"/></div>
+<div id="nav">您的位置：<a href="${pageContext.request.contextPath }/consumer">首页</a> > 我的购物车</div>
 <div id="navlist">
   <ul>
     <li class="navlist_red_left"></li> 
@@ -23,12 +23,12 @@
     <li class="navlist_gray_arrow"></li> 
      <li class="navlist_gray">3. 付款到支付宝</li> 
     <li class="navlist_gray_arrow"></li>   
-     <li class="navlist_gray">4. 确认收货</li> 
+     <!-- <li class="navlist_gray">4. 确认收货</li> 
     <li class="navlist_gray_arrow"></li> 
     <li class="navlist_gray">5. 评价</li> 
-    <li class="navlist_gray_right"></li>   
+    <li class="navlist_gray_right"></li>   --> 
   </ul>
-</div> -->
+</div> 
 
 <div id="content">
  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="shopping">
@@ -45,23 +45,23 @@
   <tr>
     <td colspan="8" class="line"></td>
   </tr>
+  <c:forEach  items="${ realShopCart}" var="shopCart">
   <tr>
-    <td colspan="8" class="shopInfo">店铺：<a href="#">纤巧百媚时尚鞋坊</a>    卖家：<a href="#">纤巧百媚</a> <img src="images/taobao_relation.jpg" alt="relation" /></td>
+    <td colspan="8" class="shopInfo">店铺：<a href="#">${shopCart.seller.sellerName }</a></td>
   </tr>
    <tr id="product1">
     <td class="cart_td_1"><input name="cartCheckBox" type="checkbox" value="product1" onclick="selectSingle()" /></td>
-    <td class="cart_td_2"><img src="images/taobao_cart_01.jpg" alt="shopping"/></td>
-    <td class="cart_td_3"><a href="#">日韩流行风时尚美眉最爱独特米字拼图金属坡跟公主靴子黑色</a><br />
-        颜色：棕色 尺码：37<br />
+    <td class="cart_td_2"><img src="${shopCart.clothes.clothesImg }" height="100px" width="100px"/></td>
+    <td class="cart_td_3"><a href="#">${shopCart.clothes.clothesIntroduction }</a><br />
         保障：<img src="images/taobao_icon_01.jpg" alt="icon" /></td>
-    <td class="cart_td_4">5</td>
-    <td class="cart_td_5">138.00</td>
+    <td class="cart_td_4">1</td>
+    <td class="cart_td_5">${shopCart.clothes.price }</td>
     <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_1','minus')" class="hand"/> <input id="num_1" type="text"  value="1" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_1','add')"  class="hand"/></td>
     <td class="cart_td_7"></td>
     <td class="cart_td_8"><a href="javascript:deleteRow('product1');">删除</a></td>
   </tr>
-  
-  <tr>
+  </c:forEach>
+  <!-- <tr>
     <td colspan="8" class="shopInfo">店铺：<a href="#">香港我的美丽日记</a>    卖家：<a href="#">lokemick2009</a> <img src="images/taobao_relation.jpg" alt="relation" /></td>
   </tr>
    <tr id="product2">
@@ -104,7 +104,7 @@
     <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_4','minus')" class="hand"/> <input id="num_4" type="text"  value="2" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_4','add')"  class="hand"/></td>
     <td class="cart_td_7"></td>
     <td class="cart_td_8"><a href="javascript:deleteRow('product4');">删除</a></td>
-  </tr>
+  </tr> -->
   
    <tr>
    <td  colspan="3"><a href="javascript:deleteSelectRow()"><img src="images/taobao_del.jpg" alt="delete"/></a></td>

@@ -324,4 +324,16 @@ public class UserController {
 		List<Clothes> clothesList=clothesSelect.selectAllClothesIndex();
 		return clothesList;
 	}
+	
+	
+	
+	@RequestMapping(value = "/adminManager", method = RequestMethod.GET)
+	public String adminManager() {
+		return "info";
+	}
+	
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	public String product() {
+		return "product";
+	}
 }

@@ -3,6 +3,7 @@ package com.yhl.dao;
 import java.util.List;
 
 import com.yhl.entity.Clothes;
+import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
 import com.yhl.entity.ShopCart;
 import com.yhl.entity.ShopCartClothes;
@@ -56,6 +57,9 @@ public interface ClothesDao {
 
 
 	void addClothesToShop(ShopCartClothes shopCartClothes);
+
+
+	List<RealShopCart> sellectShopCart(Integer consumerId);
 
 
 	

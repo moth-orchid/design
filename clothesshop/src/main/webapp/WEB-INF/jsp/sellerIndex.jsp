@@ -65,12 +65,12 @@
 	                        <p>订单管理</p>
 	                    </a>
 	                </li>
-	                <li>
+	             <%--    <li>
 	                    <a href="${pageContext.request.contextPath }/lianjie" target="right" >
 	                        <i class="material-icons">library_books</i>
 	                        <p>友情链接</p>
 	                    </a>
-	                </li>
+	                </li> --%>
 	                <li>
 	                    <a href="${pageContext.request.contextPath }/sellerPersonal?sellerId=${sellerId}" target="right" >
 	                        <i class="material-icons">person</i>
@@ -129,7 +129,7 @@
 					<div class="row" style="margin-top: -15px;">
 						
 				
-						<iframe src="product.html" width="100%" height="900" name="right" style="border: none;"></iframe>
+						<iframe src="${pageContext.request.contextPath }/product" width="100%" height="900" name="right" style="border: none;"></iframe>
 
 				
 				</div>
@@ -164,7 +164,7 @@
 					title: title,
 					iframeWidth: 500,
 					iframeHeight: 300,
-					url: "updatePwd.html"
+					url: "${pageContext.request.contextPath }/updatePassword?sellerId=${seller.sellerId}"
 				});
 			}
 		</script>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.yhl.entity.Clothes;
+import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
 import com.yhl.entity.Sort;
 
@@ -38,6 +39,8 @@ public interface ClothesSelect {
 	Sort querySortById(Sort sortId);
 
 	void addCart(Integer clothesId, Integer consumerId, Integer count);
+
+	List<RealShopCart> sellectShopCart(Integer consumerId);
 
 	
 }
