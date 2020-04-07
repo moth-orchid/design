@@ -5,21 +5,28 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yhl.entity.Address;
 import com.yhl.entity.Clothes;
+import com.yhl.entity.Consumer;
 import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
 import com.yhl.entity.Sort;
 import com.yhl.service.ClothesSelect;
+import com.yhl.service.UserSelect;
 
 @Controller
 public class User_ClothesController {
 	
 	@Autowired
 	private ClothesSelect clothesSelect;
+	
+	@Autowired
+	private UserSelect userSelect;
 	
 	@RequestMapping(value = "/enterIndex", method = RequestMethod.GET)
 	public String enterIndex() {
@@ -83,5 +90,40 @@ public class User_ClothesController {
 		 mv.setViewName("ShopCart");
 		 return mv;
 	 }
-	
+	//收获地址选择
+	 @RequestMapping(value = "/choseAddress", method = RequestMethod.GET)
+	 public ModelAndView choseAddress(@ModelAttribute Consumer consumer) {
+			ModelAndView mv=new ModelAndView();
+			
+			List<Address> list=userSelect.queryAddresseeById(consumer);
+			
+			System.out.println(list+"////.....?///");
+			mv.setViewName("addresseeChose");
+			mv.addObject("addressList", list);
+			mv.addObject("consumerId", consumer.getConsumerId());
+			return mv;
+		}
+	 //选择之后
+	 @RequestMapping(value = "/addressChose", method = RequestMethod.GET)
+	 public ModelAndView addressChose(Integer id,Integer consumerId) {
+		 ModelAndView mv=new ModelAndView();
+		 List<RealShopCart> realShopCart =clothesSelect.sellectShopCart(consumerId);
+		 mv.addObject("consumerId", consumerId);
+		 mv.addObject("realShopCart", realShopCart);
+		mv.setViewName("order");
+			mv.addObject("addressId", id);
+			return mv;
+		} 
+	 
+	 //订单
+	 @RequestMapping(value = "/order", method = RequestMethod.GET)
+	 public ModelAndView order(@ModelAttribute Consumer consumer) {
+			 ModelAndView mv=new ModelAndView();
+			 List<RealShopCart> realShopCart =clothesSelect.sellectShopCart(consumer.getConsumerId());
+			 mv.addObject("consumerId", consumer.getConsumerId());
+			 mv.addObject("realShopCart", realShopCart);
+			mv.setViewName("order");
+			
+			return mv;
+		}
 }

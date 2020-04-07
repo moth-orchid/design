@@ -32,7 +32,8 @@
 
 <div id="content">
  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="shopping">
- <form action="" method="post" name="myform">
+ <!-- name="myform" -->
+ <form action="${pageContext.request.contextPath }/order?consumerId=${consumerId}" method="get" >
   <tr>
     <td class="title_1"><input id="allCheckBox" type="checkbox" value="" onclick="selectAll()" />全选</td>
     <td class="title_2" colspan="2">店铺宝贝</td>
@@ -47,70 +48,31 @@
   </tr>
   <c:forEach  items="${ realShopCart}" var="shopCart">
   <tr>
-    <td colspan="8" class="shopInfo">店铺：<a href="#">${shopCart.seller.sellerName }</a></td>
+    <td colspan="8" class="shopInfo">店铺：<a href="#">${shopCart.seller.sellerName }</a>
+   <%--  <input  type="hidden" name="sellerName" value="${shopCart.seller.sellerName }"/> --%></td>
   </tr>
    <tr id="product1">
     <td class="cart_td_1"><input name="cartCheckBox" type="checkbox" value="product1" onclick="selectSingle()" /></td>
-    <td class="cart_td_2"><img src="${shopCart.clothes.clothesImg }" height="100px" width="100px"/></td>
+    <td class="cart_td_2"><img src="${shopCart.clothes.clothesImg }" height="100px" width="100px"/>
+   <%--  <input  type="hidden" name="clothesImg" value="${shopCart.clothes.clothesImg }"/> --%></td>
     <td class="cart_td_3"><a href="#">${shopCart.clothes.clothesIntroduction }</a><br />
-        保障：<img src="images/taobao_icon_01.jpg" alt="icon" /></td>
-    <td class="cart_td_4">1</td>
-    <td class="cart_td_5">${shopCart.clothes.price }</td>
+        保障：<img src="images/taobao_icon_01.jpg" alt="icon" />
+     <%--  <input  type="hidden" name="clothesIntroduction" value="${shopCart.clothes.clothesIntroduction }"/> --%>  </td>
+    <td class="cart_td_4">1<!-- <input  type="hidden" name="count" value=""/> --></td>
+    <td class="cart_td_5">${shopCart.clothes.price }
+   <%--  <input  type="hidden" name="price" value="${shopCart.clothes.price }"/> --%></td>
     <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_1','minus')" class="hand"/> <input id="num_1" type="text"  value="1" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_1','add')"  class="hand"/></td>
     <td class="cart_td_7"></td>
     <td class="cart_td_8"><a href="javascript:deleteRow('product1');">删除</a></td>
   </tr>
   </c:forEach>
-  <!-- <tr>
-    <td colspan="8" class="shopInfo">店铺：<a href="#">香港我的美丽日记</a>    卖家：<a href="#">lokemick2009</a> <img src="images/taobao_relation.jpg" alt="relation" /></td>
-  </tr>
-   <tr id="product2">
-    <td class="cart_td_1"><input name="cartCheckBox" type="checkbox" value="product2" onclick="selectSingle()" /></td>
-    <td class="cart_td_2"><img src="images/taobao_cart_02.jpg" alt="shopping"/></td>
-    <td class="cart_td_3"><a href="#">chanel/香奈尔/香奈尔炫亮魅力唇膏3.5g</a><br />
-        保障：<img src="images/taobao_icon_01.jpg" alt="icon" /> <img src="images/taobao_icon_02.jpg" alt="icon" /></td>
-    <td class="cart_td_4">12</td>
-    <td class="cart_td_5">265.00</td>
-    <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_2','minus')" class="hand"/> <input id="num_2" type="text"  value="1" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_2','add')"  class="hand"/></td>
-    <td class="cart_td_7"></td>
-    <td class="cart_td_8"><a href="javascript:deleteRow('product2');">删除</a></td>
-  </tr>
-  
-   <tr>
-    <td colspan="8" class="shopInfo">店铺：<a href="#">实体经营</a>    卖家：<a href="#">林颜店铺</a> <img src="images/taobao_relation.jpg" alt="relation" /></td>
-  </tr>
-   <tr id="product3">
-    <td class="cart_td_1"><input name="cartCheckBox" type="checkbox" value="product3"  onclick="selectSingle()"/></td>
-    <td class="cart_td_2"><img src="images/taobao_cart_03.jpg" alt="shopping"/></td>
-    <td class="cart_td_3"><a href="#">蝶妆海晳蓝清滢粉底液10#（象牙白）</a><br />
-        保障：<img src="images/taobao_icon_01.jpg" alt="icon" /> <img src="images/taobao_icon_02.jpg" alt="icon" /></td>
-    <td class="cart_td_4">3</td>
-    <td class="cart_td_5">85.00</td>
-    <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_3','minus')" class="hand"/> <input id="num_3" type="text"  value="1" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_3','add')"  class="hand"/></td>
-    <td class="cart_td_7"></td>
-    <td class="cart_td_8"><a href="javascript:deleteRow('product3');">删除</a></td>
-  </tr>
-  
-   <tr>
-    <td colspan="8" class="shopInfo">店铺：<a href="#">红豆豆的小屋</a>    卖家：<a href="#">taobao豆豆</a> <img src="images/taobao_relation.jpg" alt="relation" /></td>
-  </tr>
-   <tr id="product4">
-    <td class="cart_td_1"><input name="cartCheckBox" type="checkbox" value="product4" onclick="selectSingle()" /></td>
-    <td class="cart_td_2"><img src="images/taobao_cart_04.jpg" alt="shopping"/></td>
-    <td class="cart_td_3"><a href="#">相宜促销专供 大S推荐 最好用的LilyBell化妆棉</a><br />
-        保障：<img src="images/taobao_icon_01.jpg" alt="icon" /></td>
-    <td class="cart_td_4">12</td>
-    <td class="cart_td_5">12.00</td>
-    <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_4','minus')" class="hand"/> <input id="num_4" type="text"  value="2" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_4','add')"  class="hand"/></td>
-    <td class="cart_td_7"></td>
-    <td class="cart_td_8"><a href="javascript:deleteRow('product4');">删除</a></td>
-  </tr> -->
   
    <tr>
    <td  colspan="3"><a href="javascript:deleteSelectRow()"><img src="images/taobao_del.jpg" alt="delete"/></a></td>
-    <td colspan="5" class="shopend">商品总价（不含运费）：<label id="total" class="yellow"></label> 元<br />
-    可获积分 <label class="yellow" id="integral"></label> 点<br />
-    <input name=" " type="image" src="images/taobao_subtn.jpg" /></td>
+    <td colspan="5" class="shopend">商品总价（不含运费）：<label id="total" class="yellow"></label>元<br />
+   <!--  可获积分 <label class="yellow" id="integral"></label> 点<br /> -->
+   <!-- <input name=" " type="image" src="images/taobao_subtn.jpg" /> -->
+   <a href="${pageContext.request.contextPath }/order?consumerId=${consumerId}">立即购买</a>
   </tr>
   </form>
 </table>
