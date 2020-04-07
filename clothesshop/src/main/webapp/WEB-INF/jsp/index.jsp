@@ -11,65 +11,12 @@
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/icons.css" />
 <link rel="stylesheet" href="css/table.css" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
 <script type="text/javascript">
-$(function(){
-	//点击X 删除效果
-	$(".c4_b2_y .search_del").on("click",function(){
-		var li = this.parentNode;
-		var ul  = li.parentNode;
-		ul.removeChild(li);
-	});
-	//价格和出版社选择
-	$(".c4_b3_search a").on("click",function(){
-		
-		var ul = $(".c4_b2_y");
-		
-		var name=$(this).parent().parent().find(".c4_b3_name").html();
-		
-		var old  = $(".c4_b2_y .search_key");
-		$.each(old,function(index,obj){
-			if(obj.innerHTML==name){
-				var li = this.parentNode;
-				var ul  = li.parentNode;
-				ul.removeChild(li);
-			}
-		})
-		
-		var value = this.innerHTML;
-		
-		var li = $("<li><span class='search_key'>"+name+"</span><span class='search_val'>"+value+"</span><span class='search_del'></span></li>");
-		ul.append(li);
-		ul.find(".search_del").on("click",function(){
-			var li = this.parentNode;
-			var ul  = li.parentNode;
-			ul.removeChild(li);
-		});
-		
-		
-		
-	});
-	
-	//销量等
-	$(".c4_b4_nav a").on("click",function(){
-		var mythis = this;
-		$(this.parentNode).addClass("current");
-		$.each($(".c4_b4_nav a"),function(index,obj){
-			if(mythis!=obj){
-				$(obj.parentNode).removeClass("current");
-			}
-		});
-	});
-	
-	
-	
-	
-});	
-	
-
-function addShopCart(bookName){
-	alert(bookName+"加入购物车成功");
-}
+	function userRegist(){
+		var status = prompt("请输入您的身份:商家/消费者");
+		window.location.href = "${pageContext.request.contextPath }/userRegist?status="+status
+	};
 </script>
 </head>
 <body>
@@ -77,9 +24,10 @@ function addShopCart(bookName){
 	<div class="top">
     	<div class="top_center">
             <ul class="top_bars">
+            	<li><a  onclick="userRegist()" >注册</a></li>
             	<li><a href="${pageContext.request.contextPath }/userLogin">登录</a>|</li>
             	<!-- <li><a href="index.html">退出</a>|</li> -->
-                <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
+                <li><a href="${pageContext.request.contextPath }/userLogin">我的订单<span class="jt_down"></span></a>|</li>
                 <li><a href="#">关注商城<span class="jt_down"></span></a>|</li>
                 <li><a href="#">网站导航<span class="jt_down"></span></a></li>
             </ul>
@@ -96,11 +44,11 @@ function addShopCart(bookName){
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="userinfo.html">个人信息</a>
+            	<a href="${pageContext.request.contextPath }/userLogin">个人信息</a>
                 <span class="sj_down"></span>
              </div>
             <div id="g" class="tsc">
-            	<a href="shopCart.html">去购物车结算</a>
+            	<a href="${pageContext.request.contextPath }/userLogin">去购物车结算</a>
                 <span class="sj_right"></span>
             </div>
         </div>
@@ -130,7 +78,7 @@ function addShopCart(bookName){
                     <div class="c4_b1_box_txt">
                     	<p>短袖1</p>
                         <h1>活动价：<b>￥30</b></h1>
-                        <h2><a href="${pageContext.request.contextPath }/addShopaCart?clothes_id=1">立即抢购</a></h2>
+                        <h2><a href="${pageContext.request.contextPath }/userLogin">立即抢购</a></h2>
                     </div>
                 </li>
                 <li>

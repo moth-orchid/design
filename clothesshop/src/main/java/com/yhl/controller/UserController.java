@@ -141,13 +141,13 @@ public class UserController {
 	@RequestMapping(value = "/consumerRegist", method = RequestMethod.GET)
 	public String consumerRegist(@ModelAttribute Consumer consumer) {
 		userSelect.insertCustomer(consumer);
-		return "consumer";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/sellerRegist", method = RequestMethod.GET)
 	public String sellerRegist(@ModelAttribute Seller seller) {
 		userSelect.insertSeller(seller);
-		return "seller";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/consumerManager", method = RequestMethod.GET)
@@ -335,5 +335,17 @@ public class UserController {
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String product() {
 		return "product";
+	}
+	
+	//userRegist判断
+	@RequestMapping(value = "/userRegist", method = RequestMethod.GET)
+	public String userRegist(String status) {
+		if(status.equals("消费者")) {
+			return "consumer_regist";
+		}else if(status.equals("商家")) {
+			return "seller_regist";
+		}else {
+			return "index";
+		}
 	}
 }

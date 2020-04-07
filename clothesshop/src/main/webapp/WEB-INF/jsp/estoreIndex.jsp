@@ -87,7 +87,7 @@ function addShopCart(bookName){
     </div>
     <!--头部-->
     <div class="header3">
-    	<a href="index.html"><img src="images/u=2514378785,3326817705&fm=11&gp=0.jpg"></a>
+    	<a href="index.html"><img src="images/faedab64034f78f0d7a87ed67c310a55b3191c77.jpg"></a>
     	<div class="h3_center">
         	<div class="search_box">
             	<input type="text"/>
@@ -96,7 +96,7 @@ function addShopCart(bookName){
         </div>
         <div class="h3_right">
         	<div class="myyy">
-            	<a href="${pageContext.request.contextPath }/personalManager?consumerId=${consumerId}">个人信息</a>
+            	<a href="${pageContext.request.contextPath }/personalManager?consumerId=${consumerId}">个人中心</a>
                 <span class="sj_down"></span>
              </div>
             <div id="g" class="tsc">
