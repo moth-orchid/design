@@ -76,9 +76,9 @@ public class UserController {
 	@RequestMapping(value = "/consumer", method = RequestMethod.GET)
 	public ModelAndView enterConsumer(String name,String password,String status) {
 		System.out.println(name+password+status);
-		ModelAndView  mv=new ModelAndView();
 		//判断用户身份
 		if(status.equals("商家")&&status!=null) {
+			ModelAndView  mv=new ModelAndView();
 			//判断该商家是否存在
 			Seller seller=new Seller();
 			seller.setSellerName(name);
@@ -97,6 +97,7 @@ public class UserController {
 			}
 		}
 		else if (status.equals("消费者")&&status!=null) {
+			ModelAndView  mv=new ModelAndView();
 			//判断该消费者是否存在
 			Consumer consumer=new Consumer();
 			consumer.setConsumerName(name);
@@ -119,6 +120,7 @@ public class UserController {
 			}
 		}
 		else if(status.equals("管理员")&&status!=null){
+			ModelAndView  mv=new ModelAndView();
 			//判断管理员是否存在
 			Admin admin=new Admin();
 			admin.setAdminName(name);
@@ -134,20 +136,29 @@ public class UserController {
 			}
 		}
 		else {
+			ModelAndView  mv=new ModelAndView();
+			mv.setViewName("loginError");
 			return mv;
 		}
 	}
 	
 	@RequestMapping(value = "/consumerRegist", method = RequestMethod.GET)
 	public String consumerRegist(@ModelAttribute Consumer consumer) {
+		if(consumer.getConsumerName().equals("")||consumer.getConsumerPassword().equals("")) {
+			return "error";
+		}
 		userSelect.insertCustomer(consumer);
 		return "login";
 	}
 	
 	@RequestMapping(value = "/sellerRegist", method = RequestMethod.GET)
 	public String sellerRegist(@ModelAttribute Seller seller) {
-		userSelect.insertSeller(seller);
-		return "login";
+		if(seller.getSellerName().equals("")||seller.getSellerPassword().equals("")) {
+			return "error";
+		}else {
+			userSelect.insertSeller(seller);
+			return "login";
+		}
 	}
 	
 	@RequestMapping(value = "/consumerManager", method = RequestMethod.GET)

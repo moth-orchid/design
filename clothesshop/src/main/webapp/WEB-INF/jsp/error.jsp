@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>查询用户</title>
+<title>错误页面</title>
 </head>
-<body> 
-<h1>这是消费者页面：</h1>
-<a href="${pageContext.request.contextPath }/personalManager?consumerId=${consumer.consumerId}">个人中心</a>
+<body>
+	<h1>您输入的信息有误，用户名或者密码为空。请返回重新注册</h1>
 </body>
 
 </html>
