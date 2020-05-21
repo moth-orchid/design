@@ -67,7 +67,7 @@ public interface ClothesDao {
 	Integer selectClothesByClothesId(@Param("clothesId")Integer clothesId,@Param("consumerId")Integer consumerId);
 
 
-	void updateCount(Integer count1, Integer clothesId, Integer shopCartId);
+	void updateCount(@Param("count1")Integer count1, @Param("clothesId")Integer clothesId, @Param("shopCartId")Integer shopCartId);
 
 
 	

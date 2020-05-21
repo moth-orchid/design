@@ -36,7 +36,7 @@
 					<div class="pudc"><img src="${order.clothes.clothesImg }" />${order.clothes.clothesIntroduction}</span>
 					</div>
 					<div class="pices">${order.clothes.price}</div>
-					<div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value="1" /><span class="add">&nbsp;+</span></div>
+					<div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value="${order.count}" /><span class="add">&nbsp;+</span></div>
 					<div class="totle">5999.8</div>
 					<div class="del">删除</div>
 				</div>

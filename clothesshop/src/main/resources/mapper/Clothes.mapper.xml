@@ -194,6 +194,6 @@
 	<update id="updateCount" >
 		update shopCartClothes_table 
 		set count=#{count1} 
-		where shopCart_id=#{shopCartId} and clothesId=#{clothesId}
+		where shopCart_id=#{shopCartId} and clothes_Id=#{clothesId}
 	</update> 
 </mapper>

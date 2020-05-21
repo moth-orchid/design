@@ -127,9 +127,10 @@ public class ClothesOperate implements ClothesSelect{
 			//直接将服装放入购物车中
 			//此处判断是否购物车中是否已经有该服装
 			System.out.println(consumerId+""+clothesId);
-			Integer c1=clothesDao.selectClothesByClothesId(clothesId,consumerId);
-			System.out.println(c1);
-			if(c1==null) {
+			Integer shopCartId=clothesDao.selectClothesByClothesId(clothesId,consumerId);
+			System.out.println(shopCartId);
+			if(shopCartId==null) {
+				//没有该服装
 				System.out.println("kkkkk");
 				ShopCartClothes shopCartClothes1=new ShopCartClothes();
 				shopCartClothes1.setCount(count);
@@ -140,9 +141,11 @@ public class ClothesOperate implements ClothesSelect{
 				clothesDao.addClothesToShop(shopCartClothes1);
 			}
 			else {
+				//该服装已经存在
 				System.out.println("kkhiu");
 				/* ShopCartClothes s1=clothesDao.selectCount(c1,clothesId); */
-				
+				Integer count1=count+1;
+				clothesDao.updateCount(count1, clothesId,  shopCartId);
 			}
 		}
 	}

@@ -61,7 +61,7 @@
     <td class="cart_td_4">1<!-- <input  type="hidden" name="count" value=""/> --></td>
     <td class="cart_td_5">${shopCart.clothes.price }
    <%--  <input  type="hidden" name="price" value="${shopCart.clothes.price }"/> --%></td>
-    <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_1','minus')" class="hand"/> <input id="num_1" type="text"  value="1" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_1','add')"  class="hand"/></td>
+    <td class="cart_td_6"><img src="images/taobao_minus.jpg" alt="minus" onclick="changeNum('num_1','minus')" class="hand"/> <input id="num_1" type="text"  value="${shopCart.count }" class="num_input" readonly="readonly"/> <img src="images/taobao_adding.jpg" alt="add" onclick="changeNum('num_1','add')"  class="hand"/></td>
     <td class="cart_td_7"></td>
     <td class="cart_td_8"><a href="javascript:deleteRow('product1');">删除</a></td>
   </tr>

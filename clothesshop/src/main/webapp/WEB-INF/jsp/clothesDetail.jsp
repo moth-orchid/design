@@ -99,17 +99,19 @@
                         	});
                         	function addShopCart(){
                         		alert("加入购物车成功");
+                        		const val = $('#text_box').val();
+								$('#add-card').attr("href", "${pageContext.request.contextPath }/addCart?consumerId=${consumerId}&clothesId=${clothes.clothesId}&count="+val);
                         	}
                         	</script>  
                         	<div class="gcIpt">
                         		<span class="guT">数量</span>
                         		<input id="min" name="" type="button" value="-" />  
-                        		<input id="text_box" name="" type="text" value="1"style="width:30px; text-align: center; color: #0F0F0F;"/>  
+                        		<input id="text_box" name="" type="text" value="1" style="width:30px; text-align: center; color: #0F0F0F;"/>  
                         		<input id="add" name="" type="button" value="+" />
                         		<span class="Hgt">库存${clothes.clothesCount}</span>
                         	</div>
                         	<div class="nobdr-btns">
-                        		<button class="addcart hu"><img src="images/shop.png" width="25" height="25"/><a href="${pageContext.request.contextPath }/addCart?consumerId=${consumerId}&clothesId=${clothes.clothesId}"  onclick="addShopCart()">加入购物车</a></button>
+                        		<button class="addcart hu"><img src="images/shop.png" width="25" height="25"/><a href="${pageContext.request.contextPath }/addCart?consumerId=${consumerId}&clothesId=${clothes.clothesId}&count=document.getElementById(text_box).value" id="add-card"  onclick="addShopCart()">加入购物车</a></button>
                         		<button class="addcart yh"><img src="images/ht.png" width="25" height="25"/>立即购买</button>
                         	</div>
                         	<div class="guarantee">
