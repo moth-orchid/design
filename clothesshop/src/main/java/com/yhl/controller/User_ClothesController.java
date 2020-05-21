@@ -122,7 +122,7 @@ public class User_ClothesController {
 			 List<RealShopCart> realShopCart =clothesSelect.sellectShopCart(consumer.getConsumerId());
 			 mv.addObject("consumerId", consumer.getConsumerId());
 			 mv.addObject("realShopCart", realShopCart);
-			mv.setViewName("order");
+			 mv.setViewName("order");
 			
 			return mv;
 		}

@@ -2,6 +2,8 @@ package com.yhl.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yhl.entity.Clothes;
 import com.yhl.entity.RealShopCart;
 import com.yhl.entity.Seller;
@@ -60,6 +62,12 @@ public interface ClothesDao {
 
 
 	List<RealShopCart> sellectShopCart(Integer consumerId);
+
+
+	Integer selectClothesByClothesId(@Param("clothesId")Integer clothesId,@Param("consumerId")Integer consumerId);
+
+
+	void updateCount(Integer count1, Integer clothesId, Integer shopCartId);
 
 
 	

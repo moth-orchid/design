@@ -100,7 +100,7 @@ public class ClothesOperate implements ClothesSelect{
 	@Override
 	public void addCart(Integer clothesId, Integer consumerId, Integer count) {
 		System.out.println(clothesId);
-		//首先判断是否给人已经有购物车
+		//首先判断是否该人已经有购物车
 		ShopCart shopCart=clothesDao.selectShopCart(consumerId);
 		//1:没有购物车
 		if(shopCart==null) {
@@ -123,14 +123,27 @@ public class ClothesOperate implements ClothesSelect{
 		}
 		//该顾客已经存在购物车
 		else {
+			System.out.println("jjjj");
 			//直接将服装放入购物车中
-			ShopCartClothes shopCartClothes=new ShopCartClothes();
-			shopCartClothes.setCount(count);
-			shopCartClothes.setShopCart(shopCart);
-			Clothes clothes=new Clothes();
-			clothes.setClothesId(clothesId);
-			shopCartClothes.setClothes(clothes);
-			clothesDao.addClothesToShop(shopCartClothes);
+			//此处判断是否购物车中是否已经有该服装
+			System.out.println(consumerId+""+clothesId);
+			Integer c1=clothesDao.selectClothesByClothesId(clothesId,consumerId);
+			System.out.println(c1);
+			if(c1==null) {
+				System.out.println("kkkkk");
+				ShopCartClothes shopCartClothes1=new ShopCartClothes();
+				shopCartClothes1.setCount(count);
+				shopCartClothes1.setShopCart(shopCart);
+				Clothes clothes=new Clothes();
+				clothes.setClothesId(clothesId);
+				shopCartClothes1.setClothes(clothes);
+				clothesDao.addClothesToShop(shopCartClothes1);
+			}
+			else {
+				System.out.println("kkhiu");
+				/* ShopCartClothes s1=clothesDao.selectCount(c1,clothesId); */
+				
+			}
 		}
 	}
 

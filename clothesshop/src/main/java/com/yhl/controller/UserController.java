@@ -70,7 +70,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
 	public String userLogin() {
-		return "login";
+		return "login1";
 	}
 	
 	@RequestMapping(value = "/consumer", method = RequestMethod.GET)

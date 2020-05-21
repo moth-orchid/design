@@ -9,15 +9,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>login</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/demo.css" />
+<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/demo.css" /> --%>
 <!--必要样式-->
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/component.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/component.css" /> 
 <!--[if IE]>
 <script src="js/html5.js"></script>
 <![endif]-->
 </head>
-<body>
+<body background="${pageContext.request.contextPath }/images/seller.jpg"
+ style="background-size: cover;background-repeat: no-repeat;">
 		<div class="container demo-1">
 			<div class="content">
 				<div id="large-header" class="large-header">

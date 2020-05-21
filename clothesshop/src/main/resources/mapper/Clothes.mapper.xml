@@ -184,4 +184,16 @@
 		from seller_table s1,clothes_table c1,shopcart_table s2,shopcartclothes_table s3
 		where s2.consumer_id=#{consumerId} and s2.shopCart_id=s3.shopCart_id and s3.clothes_id=c1.clothes_id and c1.seller_id=s1.seller_id
 	</select>
+	
+	<select id="selectClothesByClothesId"    resultType="Integer">
+		select distinct s1.shopCart_id
+		from shopCartClothes_table s1, shopcart_table s2
+		where s1.shopCart_id=s2.shopCart_id and s2.consumer_id=#{consumerId} and s1.clothes_Id=#{clothesId}
+	</select>
+	
+	<update id="updateCount" >
+		update shopCartClothes_table 
+		set count=#{count1} 
+		where shopCart_id=#{shopCartId} and clothesId=#{clothesId}
+	</update> 
 </mapper>
